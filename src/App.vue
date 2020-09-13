@@ -9,16 +9,18 @@
       </video>
     </div>
     <Introduction />
+    <Search />
   </div>
 </template>
 
 <script>
 import Introduction from "./components/Introduction.vue";
+import Search from "./components/Search.vue";
 
 export default {
   name: "App",
   components: {
-    Introduction
+    Introduction, Search
   }
 };
 </script>
