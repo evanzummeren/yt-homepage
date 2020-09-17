@@ -43,7 +43,6 @@ export default {
     anime({
       targets: 'h1, .cta, .line',
       translateY: [10, 0],
-      // opacity: [0, 1],
       duration: 2000,
       scale: [1.1, 1],
       easing: 'easeInOutQuad',
