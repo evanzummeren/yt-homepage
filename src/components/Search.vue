@@ -1,34 +1,167 @@
 <template>
   <div class="container">
+    <div class="step step__initiatefulltext"></div>
+    <div class="step step__one"></div>
+    
     <h3>Features</h3>
-    <h2>Perform full text search on ‘radical’ YouTube content</h2>
+    <h2 class="fulltext">Perform full text search on<br/>‘radical’ YouTube content</h2>
 
     <div class="searchbox">
-      <span>elite pedophile ring</span>
+      <span class="string"><span class="innerstring"></span></span>
       <div class="searchbox__button">search</div>
     </div>
 
     <div class="results">
+
       <div class="result result__first">
         <div class="result__text">
           <span class="result__text--innershadow"></span>
-          proven true there actually was an international <span class="highlight">elite pedophile ring</span> proven true there actually was an international
+          <span class="result__innertext">proven true there actually was an international </span> 
+          <span class="highlight"><span class="highlight__innertext">elite pedophile ring</span></span> 
+          <span class="result__innertext"> proven true there actually was an international</span>
         </div>
-        <span class="result__thumb">
+        <span class="result__thumb" style="margin-left: 580px">
           <span class="result__thumb--innershadow"></span>
         </span>
       </div>
 
-      
+      <div class="result result__first" style="margin-left: 3rem">
+        <div class="result__text">
+          <span class="result__text--innershadow"></span>
+          <span class="result__innertext">proven true there actually a completely secret </span>
+          <span class="highlight"><span class="highlight__innertext">elite pedophile ring</span></span>
+          <span class="result__innertext"> proven true there actually was an international</span>
+        </div>
+        <span class="result__thumb" style="margin-left: 580px">
+          <span class="result__thumb--innershadow"></span>
+        </span>
+      </div>
 
+            <div class="result result__first" style="margin-left: 8rem">
+        <div class="result__text">
+          <span class="result__text--innershadow"></span>
+          <span class="result__innertext">proven true there actually a completely secret </span>
+          <span class="highlight"><span class="highlight__innertext">elite pedophile ring</span></span>
+          <span class="result__innertext"> proven true there actually was an international</span>
+        </div>
+        <span class="result__thumb" style="margin-left: 580px">
+          <span class="result__thumb--innershadow"></span>
+        </span>
+      </div>
 
     </div>
   </div>
 </template>
 
 <script>
+import scrollama from "scrollama";
+import anime from "animejs";
+import Typed from 'typed.js';
+
 export default {
-  name: "Search"
+  name: "Search",
+  mounted: function() {
+    const scrollerTwo = scrollama();
+
+      scrollerTwo
+        .setup({
+          step: ".step"
+        })
+        .onStepEnter(response => {
+          if(response.index === 6) {
+            this.showHeader()
+          }
+          // console.log(response.element)
+          
+
+          // { element, index, direction }
+        })
+        // .onStepExit(response => {
+        //   // console.log(response)
+        //   // { element, index, direction }
+        // });
+
+      // setup resize event
+      window.addEventListener("resize", scrollerTwo.resize);
+  },
+  methods: {
+    showHeader() {
+      var _this = this;
+
+      anime({
+        targets: '.fulltext, .searchbox',
+        translateY: [3, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500;
+        },
+        complete: function() {
+          _this.animateSearch();
+        }
+      });
+    },
+    animateSearch() {
+      var options = {
+        strings: ['elite pedophile ^200 ring'],
+        typeSpeed: 60
+      };
+
+      new Typed('.innerstring', options);
+      var _this = this;
+
+      setTimeout(function(){ console.log('bla'); _this.showVideoResults() }, 2000);
+    },
+    showVideoResults() {
+
+      var tl = anime.timeline({
+        easing: 'easeInOutQuad'
+      });
+
+      tl.add({
+        targets: '.result__thumb',
+        translateX: [-20, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        delay: function(el, i) {
+          return i * 500;
+        }
+      }).add({
+        targets: '.result__thumb--innershadow',
+        opacity: [0, 1],
+        duration: 300,
+        delay: function(el, i) {
+          return i * 500;
+        }        
+      }, '-=1500').add({
+        targets: '.highlight',
+        opacity: [0, 1],
+        duration: 1500,
+        delay: function(el, i) {
+          return i * 500;
+        }        
+      }, '-=1500').add({
+        targets: '.highlight__innertext',
+        opacity: [0, 1],
+        translateY: [10,0],
+        duration: 400,
+        delay: function(el, i) {
+          return i * 300;
+        }        
+      }, '-=2000').add({
+        targets: '.result__innertext',
+        opacity: [0, 1],
+        // translateY: [10,0],
+        duration: 1000,
+        delay: function(el, i) {
+          return i * 300;
+        }        
+      }, '-=1000');
+
+    }
+
+  }
 }
 </script>
 
@@ -63,14 +196,16 @@ h2 {
   margin-top: 0;
   color: white;
   font-weight: 100;
+  opacity: 0;
 }
 
 .searchbox {
   grid-column: col-start / 16;
   display: flex;
+  opacity: 0;
 }
 
-.searchbox span {
+.string {
   background-image: url("../assets/search.svg");
   background-repeat: no-repeat;
   background-position: .5rem .2rem;
@@ -82,6 +217,10 @@ h2 {
   width: 24rem;
   display: block;
   padding-left: 3rem;
+}
+
+.typed-cursor {
+  color: #2F2F2F !important;
 }
 
 .searchbox__button {
@@ -98,7 +237,7 @@ h2 {
 }
 
 .results {
-    grid-column: col-start / 16;
+  grid-column: col-start / 16;
   display: grid;
 }
 
@@ -122,6 +261,7 @@ width: 100vw;
   padding: .25rem;
   color: black;
   border-radius: 5px;
+  display: inline-block;
 }
 
 .result__thumb {
@@ -132,15 +272,14 @@ width: 100vw;
   position: absolute;
   margin-top: -40px;
   z-index: 0;
-  margin-left: 580px;
 }
 
 .result__thumb--innershadow {
   height: 90px;
   width: 160px;
   background: rgb(0,0,0);
-background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
-display: block;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
+  display: block;
 }
 
 .result__text--innershadow {
@@ -150,5 +289,17 @@ display: block;
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
   display: block;
   position: absolute;
+}
+
+.step__initiatefulltext {
+  margin-top: -20vh;
+}
+
+.step__two {
+  margin-top: 100vh;
+}
+
+.result__innertext, .highlight, .result__thumb, .result__thumb--innershadow, .highlight__innertext {
+  opacity: 0;
 }
 </style>

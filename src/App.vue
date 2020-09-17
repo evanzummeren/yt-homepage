@@ -4,23 +4,64 @@
       <h1>Understanding radical<br>YouTube communities</h1>
       <span class="cta">Why and what?</span>
       <div class="line"></div>
-      <video playsinline autoplay muted poster="polina.jpg">
-        <source src="./assets/videobg.mp4" type="video/mp4">
+
+      <video class="vidblock video__sq--1" playsinline autoplay muted poster="polina.jpg">
+        <source src="./assets/square_contrapoints.mp4" type="video/mp4">
       </video>
+
+            <video class="vidblock video__sq--2" playsinline autoplay muted poster="polina.jpg">
+        <source src="./assets/square_prager.mp4" type="video/mp4">
+      </video>
+
+            <video class="vidblock video__sq--3" playsinline autoplay muted poster="polina.jpg">
+        <source src="./assets/square_english.mp4" type="video/mp4">
+      </video>
+
+      <!-- <video class="fullvideo" playsinline autoplay muted poster="polina.jpg">
+        <source src="./assets/videobg.mp4" type="video/mp4">
+      </video> -->
     </div>
     <Introduction />
     <Search />
+    <Community />
   </div>
 </template>
 
 <script>
 import Introduction from "./components/Introduction.vue";
 import Search from "./components/Search.vue";
+import Community from "./components/Community.vue";
+
+import anime from "animejs";
 
 export default {
   name: "App",
   components: {
-    Introduction, Search
+    Introduction, Search, Community
+  },
+  mounted: function() {
+    anime({
+      targets: 'h1, .cta, .line',
+      translateY: [10, 0],
+      // opacity: [0, 1],
+      duration: 2000,
+      scale: [1.1, 1],
+      easing: 'easeInOutQuad',
+      delay: function(el, i) {
+        return i * 1000;
+      }
+    });
+
+    anime({
+      targets: '.vidblock',
+      scale: [1.2, .9],
+      opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, .8],
+      duration: 6000,
+      easing: 'easeInOutQuad',
+      delay: function(el, i) {
+        return i * 300;
+      }
+    });
   }
 };
 </script>
@@ -75,6 +116,7 @@ h1 {
   /* margin-top: 33vh; */
   font-size: 4rem;
   text-align: center;
+  /* opacity: 0; */
 }
 
 .cta {
@@ -104,12 +146,50 @@ h1 {
   animation-timing-function: linear;
 }
 
-video {
+.vidblock {
+  opacity: 0;
+}
+
+.video__sq--1 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin-top: -6rem;
+  margin-left: -13rem;
+}
+
+.video__sq--2 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin-top: -11rem;
+  margin-left: 12rem;
+}
+
+.video__sq--3 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+margin-top: 9rem;
+    margin-left: 7rem;
+}
+
+
+
+.fullvideo {
   object-fit: cover;
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.step {
+  width: 10px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  margin-left: 20px;
 }
 </style>

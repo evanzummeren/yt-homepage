@@ -9,11 +9,12 @@
       </g>
     </svg>
 
-    <div class="bg__elem__one"></div>
-    <div class="bg__elem__two"></div>
-    <div class="bg__elem__three"></div>
-    <div class="bg__elem__four"></div>
+    <div class="bg__elem__one noiseblocks"></div>
+    <div class="bg__elem__two noiseblocks"></div>
+    <div class="bg__elem__three noiseblocks"></div>
+    <div class="bg__elem__four noiseblocks"></div>
 
+    <div class="step step__zero"></div>
     <div class="step step__one"></div>
     <div class="step step__two"></div>
     <div class="step step__three"></div>
@@ -27,6 +28,7 @@
 
 <script>
 import scrollama from "scrollama";
+import anime from "animejs";
 
 export default {
   name: "Introduction",
@@ -42,27 +44,28 @@ export default {
   mounted: function() {
     const scroller = scrollama();
 
-    // setup the instance, pass callback functions
       scroller
         .setup({
           step: ".step"
         })
         .onStepEnter(response => {
           console.log(response)
-          if (response.index === 0) {
-            this.text = "Every minute more than 500 hours of video is uploaded to YouTube"
-          } else if (response.index === 1) {
-            this.text = "Some of these videos have a devastating effect on our society"            
-          } else if (response.index === 2) {
-            this.text = "They polarize groups to each other"            
-          } else if (response.index === 3) {
-            this.text = "And radicalize individuals"            
-          } else if (response.index === 4) {
-            this.text = "However, due to YouTube's algorithmic nature, it's often difficult to understand what's happening in the dark corners of the platform"            
+          if(response.index === 0) {
+            this.initAnimation()
           }
 
-//           However,  due to YouTube’s algorithmic nature, it’s often difficult
-// to understand what’s happening in the dark corners of the platform
+          if (response.index === 1) {
+            console.log(response);
+            this.text = "Every minute more than 500 hours of video is uploaded to YouTube"
+          } else if (response.index === 2) {
+            this.text = "Some of these videos have a devastating effect on our society"            
+          } else if (response.index === 3) {
+            this.text = "They polarize groups to each other"            
+          } else if (response.index === 4) {
+            this.text = "And radicalize individuals"            
+          } else if (response.index === 5) {
+            this.text = "However, due to YouTube's algorithmic nature, it's often difficult to understand what's happening in the dark corners of the platform"            
+          }
           // { element, index, direction }
         })
         // .onStepExit(response => {
@@ -72,6 +75,19 @@ export default {
 
       // setup resize event
       window.addEventListener("resize", scroller.resize);
+  },
+  methods: {
+    initAnimation() {
+      anime({
+        targets: '.bg__elem__one, .bg__elem__two, .bg__elem__three, .bg__elem__four',
+        opacity: [0, 1],
+        scale: [1.3, 1],
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 100;
+        }
+      });
+    }
   }
 };
 </script>
@@ -116,6 +132,10 @@ svg {
   stroke:#575756;
   stroke-width:0.5;
   stroke-miterlimit:10;
+}
+
+.noiseblocks {
+  opacity: 0;
 }
 
 .bg__elem__one {
@@ -168,13 +188,6 @@ svg {
   position: absolute;
   margin-left: 90.5rem;
   margin-top: 30.71rem;
-}
-
-.step {
-  width: 10px;
-  height: 10px;
-  /* background: white; */
-  position: absolute;
 }
 
 .step__one {
