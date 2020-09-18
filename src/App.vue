@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <header>yay</header>
     <div class="hero">
       <h1>Understanding radical<br>YouTube communities</h1>
       <span class="cta">Why and what?</span>
@@ -96,6 +97,14 @@ body {
   /* display: flex; */
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+header {
+  position: fixed;
+  color: white;
+  margin-left: 3rem;
+    margin-top: 2rem;
+    z-index: 20;
 }
 
 .hero {
