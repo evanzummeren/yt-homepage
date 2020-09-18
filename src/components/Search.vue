@@ -166,20 +166,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.container {
-  /* height: 200vh; */
-  display: grid;
-  grid-template-columns: repeat(16, [col-start] 1fr);
-  align-items: start;
-  justify-content: start;
-  grid-auto-flow: column;
-  grid-row-gap: 2rem;
-  column-gap: 1rem;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  padding-top: 4rem;
-}
+<style lang="scss" scoped>
+@import "../styles/_features.scss";
 
 h3 {
   grid-column: col-start / 16;
@@ -188,24 +176,6 @@ h3 {
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 100;
-}
-
-h2 {
-  grid-column: col-start / 16;
-  font-family: "GilReg";
-  font-size: 2rem;
-  margin-top: 0;
-  color: white;
-  font-weight: 100;
-  opacity: 0;
-}
-
-.description {
-  grid-column: col-start / 12;
-  font-family: "Flaco";
-  color: #ababab;
-  font-size: 1rem;
-  margin-top: -2rem;
 }
 
 .searchbox {

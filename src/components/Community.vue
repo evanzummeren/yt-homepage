@@ -1,5 +1,11 @@
 <template>
   <div class="community">
+		<div class="header">
+      <div class="container">
+        <h2 class="tempfix">Understand the communities behind these channels</h2>
+        <p class="description">YouTube's audiovisual nature makes it difficult for researchers and journalists to figure out what's happening on YouTube. Where platforms such as Twitter and Facebook have API's that make their content searchable, the YouTube API only scratches the surface. Open-YT provides an accessible web interface and API.</p>
+      </div>
+    </div>
 
 <svg version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2819.9 1757.4" style="enable-background:new 0 0 2819.9 1757.4;" xml:space="preserve">
 
@@ -10610,22 +10616,32 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../styles/_features.scss";
+
 .community {
-  height: 100vh;
   width: 100vw;
 }
 
-	.st0{fill:#CBBBA0;}
-	.st1{clip-path:url(#SVGID_2_);}
-	.st2{fill:none;stroke:#878787;stroke-width:0.5;stroke-miterlimit:10;}
-	.st3{fill:#FFFFFF;stroke:#878787;stroke-width:0.5;stroke-miterlimit:10;}
-	.st4{fill:#36A9E1;}
-	.st5{fill:url(#SVGID_3_);}
-	.st6{fill:url(#SVGID_4_);}
-	.st7{fill:url(#SVGID_5_);}
-	.st8{fill:url(#SVGID_6_);}
-	.st9{fill:none;}
+.header {
+  position: absolute;
+  width: 100vw;
+  height: 300px;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.st0{fill:#CBBBA0;}
+.st1{clip-path:url(#SVGID_2_);}
+.st2{fill:none;stroke:#878787;stroke-width:0.5;stroke-miterlimit:10;}
+.st3{fill:#FFFFFF;stroke:#878787;stroke-width:0.5;stroke-miterlimit:10;}
+.st4{fill:#36A9E1;}
+.st5{fill:url(#SVGID_3_);}
+.st6{fill:url(#SVGID_4_);}
+.st7{fill:url(#SVGID_5_);}
+.st8{fill:url(#SVGID_6_);}
+.st9{fill:none;}
+  
   .imagebg {
     fill: url(#image)
   }

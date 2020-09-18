@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>yay</header>
+    <header><span class="logo">open_yt</span></header>
     <div class="hero">
       <h1>Understanding radical<br>YouTube communities</h1>
       <span class="cta">Why and what?</span>
@@ -76,6 +76,7 @@ export default {
 body {
   margin: 0;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -94,7 +95,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  /* display: flex; */
   flex-direction: row;
   flex-wrap: nowrap;
 }
@@ -102,9 +102,19 @@ body {
 header {
   position: fixed;
   color: white;
-  margin-left: 3rem;
-    margin-top: 2rem;
-    z-index: 20;
+  margin-left: 4rem;
+  margin-top: 2rem;
+  z-index: 20;
+}
+
+.logo {
+  background-image: url("./assets/logo.svg");
+  line-height: 2.3rem;
+  padding-left: 4rem;
+  background-repeat: no-repeat;
+  display: block;
+  font-family: "Flaco";
+  text-transform: uppercase;
 }
 
 .hero {
@@ -178,11 +188,9 @@ h1 {
   width: 200px;
   height: 200px;
   position: absolute;
-margin-top: 9rem;
-    margin-left: 7rem;
+  margin-top: 9rem;
+  margin-left: 7rem;
 }
-
-
 
 .fullvideo {
   object-fit: cover;
