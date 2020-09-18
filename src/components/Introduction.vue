@@ -20,6 +20,7 @@
     <div class="step step__three"></div>
     <div class="step step__four"></div>
     <div class="step step__five"></div>
+    <div class="step step__six"></div>
 
     <h2>{{text}}</h2>
 
@@ -65,6 +66,8 @@ export default {
             this.text = "And radicalize individuals"            
           } else if (response.index === 5) {
             this.text = "However, due to YouTube's algorithmic nature, it's often difficult to understand what's happening in the dark corners of the platform"            
+          } else if (response.index === 6) {
+            this.text = "This tool aims to..." 
           }
           // { element, index, direction }
         })
@@ -208,6 +211,10 @@ svg {
 
 .step__five {
   margin-top: 250vh;
+}
+
+.step__six {
+  margin-top: 325vh;
 }
 
 </style>

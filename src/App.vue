@@ -10,7 +10,7 @@
         <source src="./assets/square_contrapoints.mp4" type="video/mp4">
       </video>
 
-            <video class="vidblock video__sq--2" playsinline autoplay muted poster="polina.jpg">
+      <video class="vidblock video__sq--2" playsinline autoplay muted poster="polina.jpg">
         <source src="./assets/square_prager.mp4" type="video/mp4">
       </video>
 
@@ -23,8 +23,9 @@
       </video> -->
     </div>
     <Introduction />
-    <Search />
+    <Search v-on:showCTA="showFooterCTA" />
     <Community />
+    <SearchCTA v-if="searchcta" />
   </div>
 </template>
 
@@ -33,12 +34,19 @@ import Introduction from "./components/Introduction.vue";
 import Search from "./components/Search.vue";
 import Community from "./components/Community.vue";
 
+import SearchCTA from "./components/SearchCTA.vue";
+
 import anime from "animejs";
 
 export default {
   name: "App",
+  data: function() {
+    return {
+      searchcta: false
+    }
+  },
   components: {
-    Introduction, Search, Community
+    Introduction, Search, Community, SearchCTA
   },
   mounted: function() {
     anime({
@@ -62,6 +70,11 @@ export default {
         return i * 300;
       }
     });
+  },
+  methods: {
+    showFooterCTA() {
+      this.searchcta = true;
+    }
   }
 };
 </script>
@@ -74,6 +87,7 @@ export default {
 }
 
 body {
+  background: #000;
   margin: 0;
   font-size: 16px;
   overflow-x: hidden;
@@ -91,7 +105,6 @@ body {
 }
 
 #app {
-  background: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -125,13 +138,11 @@ header {
   align-items: center;
 }
 
-
 h1 {
   color: white;
   position: absolute;
   font-family: "GilReg";
   z-index: 100;
-  /* margin-top: 33vh; */
   font-size: 4rem;
   text-align: center;
   /* opacity: 0; */

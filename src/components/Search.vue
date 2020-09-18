@@ -100,6 +100,7 @@ export default {
         },
         complete: function() {
           _this.animateSearch();
+          _this.$emit('showCTA');           
         }
       });
     },
@@ -168,6 +169,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/_features.scss";
+
+.container {
+  margin-bottom: 2rem;
+}
 
 h3 {
   grid-column: col-start / 16;

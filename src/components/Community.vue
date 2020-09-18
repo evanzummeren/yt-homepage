@@ -10626,7 +10626,7 @@ export default {
 .header {
   position: absolute;
   width: 100vw;
-  height: 300px;
+  height: 400px;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
