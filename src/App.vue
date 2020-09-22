@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    <header><span class="logo">open_yt</span></header>
+    <header>
+      <span class="logo">abc</span>
+      <span class="right">
+        <span class="right__cta">Try it out</span>
+        <a href="https://www.twitter.com" target="_blank"><span class="right__twitter"></span></a>
+        <span class="right__lang">EN<span class="off">/NL</span></span>
+      </span>
+    </header>
     <div class="hero">
       <h1>Understanding radical<br>YouTube communities</h1>
-      <span class="cta">Why and what?</span>
+      <span class="cta">Scroll down to find out more</span>
       <div class="line"></div>
 
       <video class="vidblock video__sq--1" playsinline autoplay muted poster="polina.jpg">
@@ -25,6 +32,8 @@
     <Introduction />
     <Search v-on:showCTA="showFooterCTA" />
     <Community />
+    <Notification />
+    <FooterText />
     <SearchCTA v-if="searchcta" />
   </div>
 </template>
@@ -33,6 +42,8 @@
 import Introduction from "./components/Introduction.vue";
 import Search from "./components/Search.vue";
 import Community from "./components/Community.vue";
+import Notification from "./components/Notification.vue";
+import FooterText from "./components/FooterText.vue";
 
 import SearchCTA from "./components/SearchCTA.vue";
 
@@ -42,11 +53,12 @@ export default {
   name: "App",
   data: function() {
     return {
+      lang: "en",
       searchcta: false
     }
   },
   components: {
-    Introduction, Search, Community, SearchCTA
+    Introduction, Search, Community, Notification, FooterText, SearchCTA
   },
   mounted: function() {
     anime({
@@ -118,6 +130,9 @@ header {
   margin-left: 4rem;
   margin-top: 2rem;
   z-index: 20;
+  width: calc(100vw - 8rem);
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
@@ -128,6 +143,42 @@ header {
   display: block;
   font-family: "Flaco";
   text-transform: uppercase;
+}
+
+.right, .right__cta, .right__lang {
+  line-height: 2.3rem;
+  font-family: "Flaco";
+}
+
+.right__twitter {
+  background-image: url("./assets/twitter.svg");
+  background-size: cover;
+  width: 16px;
+  height: 13px;
+  display: inline-flex;
+  opacity: .375;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.right__twitter:hover { opacity: 1; }
+
+.right__cta {
+  margin-right: 1rem;
+  border: 1px solid #2F2f2f;
+  background: black;
+  padding: .4rem .7rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.right__cta:hover {
+  background: #FFE923;
+  color: black;
+}
+
+.off {
+  color: #6A6A6A;
 }
 
 .hero {

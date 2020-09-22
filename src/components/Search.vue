@@ -4,8 +4,8 @@
     <div class="step step__one"></div>
     
     <h3>Features</h3>
-    <h2 class="fulltext">Perform full text search on<br/>‘radical’ YouTube content</h2>
-    <p class="description">YouTube's audiovisual nature makes it difficult for researchers and journalists to figure out what's happening on YouTube. Where platforms such as Twitter and Facebook have API's that make their content searchable, the YouTube API only scratches the surface. Open-YT provides an accessible web interface and API.</p>
+    <h2 class="fulltext">Search through the subtitles of YouTube videos</h2>
+    <p class="description">YouTube being a video platform, makes it difficult for researchers and journalists to figure out what's happening in it's discourse. Where platforms such as Twitter and Facebook have API's that make their content searchable, the YouTube API only scratches the surface. ABC provides an accessible web interface and API.</p>
 
     <div class="searchbox">
       <span class="string"><span class="innerstring"></span></span>

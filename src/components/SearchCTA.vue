@@ -1,11 +1,11 @@
 <template>
   <div class="searchcta">
-    <span class="searchcta__heading">Perform your first search</span>
-    <input v-model="message" placeholder="search query">
-    <span class="searchcta__heading">Community</span>
+    <span class="searchcta__heading">Try it out. Search for </span>
+    <input v-model="message" placeholder="type here">
+    <span class="searchcta__heading">in</span>
     <select v-model="selected">
       <option disabled value="">Select a community</option>
-      <option>A</option>
+      <option>qanon</option>
       <option>B</option>
       <option>C</option>
     </select>
@@ -44,7 +44,7 @@ export default {
 
 .searchcta {
   position: fixed;
-  bottom: 0;
+  bottom: 6rem;
   width: calc(100% - 8rem);
   margin-left: 4rem;
   margin-right: 4rem;
