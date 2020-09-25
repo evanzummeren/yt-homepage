@@ -8,7 +8,7 @@
     </div>
 
     <video class="communityvideo" playsinline autoplay loop muted poster="polina.jpg">
-      <source src="../assets/community.mp4" type="video/mp4">
+      <source src="../assets/community_morph.mp4" type="video/mp4">
     </video>
 
   </div>

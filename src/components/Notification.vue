@@ -4,14 +4,17 @@
 
         <div class="container">
           <h2 class="tempfix">Get notified when a channel mentions a specific topic</h2>
-          <p class="description">Get notified when </p>
+          <p class="description">[Tool] keeps track of the videos that gets uploaded to YouTube. You can subscribe to specific topics and receive an email if a video mentions a topic that you are interested in.</p>
         </div>
 
       </div>
 
-      <div class="wrapperball" ref="wrapperball"></div>
+      <div class="wrapperball" ref="wrapperball">
+        <h3 class="vidtext" ref="textball">{{activeText.keyword}}</h3>
 
-      <h3 class="vidtext">Wayfair</h3>
+      </div>
+      <div class="smallwrapperball" ref="smallwrapperball"></div>
+
 
       <!-- <video class="vidball" playsinline loop autoplay muted poster="polina.jpg"> -->
         <!-- <source src="../assets/ball.mp4" type="video/mp4"> -->
@@ -78,92 +81,173 @@
 </template>
 
 <script>
-import * as PIXI from 'pixi.js'
+import scrollama from "scrollama";
+import * as PIXI from 'pixi.js';
 import anime from "animejs";
-import vid from '../assets/ball.mp4'
+import bigball from '../assets/ball.mp4'
+import smallball from '../assets/ball_2.mp4'
 
 export default {
   name: "Notification",
+  data: function() {
+    return {
+      activeText: {
+        pos: 0,
+        keyword: 'blabla',
+        color: 'FFF'
+      },
+      words: [
+        {
+          keyword: "bill gates",
+          color: "#919191"
+        },
+        {
+          keyword: "deep state",
+          color: "#919191"
+        },
+        {
+          keyword: "wayfair",
+          color: "#FFF"
+        },
+        {
+          keyword: "drain the swamp",
+          color: "#919191"
+        },
+        {
+          keyword: "disclosure",
+          color: "#919191"
+        }
+      ]
+    }
+  },
   mounted: function() {
-    const app = new PIXI.Application({
-      transparent: true,
-      width: 400,
-      height: 500
-    });
+       const scroller = scrollama();
 
-    this.$refs.wrapperball.appendChild(app.view);
+      scroller
+        .setup({
+          step: ".notification"
+        })
+        .onStepEnter(response => {
+          console.log(response)
+          anime({
+            targets: '#xy .st1',
+            opacity: [0, 1],
+            duration: 1000,
+            easing: 'easeInOutQuad',
+            delay: function(el, i) { return i * 100; }
+          })
 
-const container = new PIXI.Container();
+          anime({
+            targets: '#z .st1',
+            translateY: [10, 0],
+            opacity: [0, 1],
+            duration: 1000,
+            easing: 'easeInOutQuad',
+            // delay: function(el, i) { return i * 100; }
+          })
 
-app.stage.addChild(container);
+        })
+        // .onStepExit(response => {
+        //   // console.log(response)
+        //   // { element, index, direction }
+        // });
+
+      // setup resize event
+      window.addEventListener("resize", scroller.resize);
+
+    this.generateBall(300, 500, 'wrapperball', 'bigball');
+    this.generateBall(150, 300, 'smallwrapperball', 'smallball');
+
+    this.changeText(this.activeText.pos);
 
 
-    const radius = 200;
-        const circle = new PIXI.Graphics()
+  },
+  methods: {
+    generateBall(w, h, classname, balltype) {
+
+      const app = new PIXI.Application({
+        transparent: true,
+        width: w,
+        height: h
+      });
+
+      this.$refs[classname].appendChild(app.view);
+
+      const container = new PIXI.Container();
+      app.stage.addChild(container);
+
+      const radius = w/2;
+      const circle = new PIXI.Graphics()
         .beginFill(0xFF0000)
         .drawCircle(radius, radius, radius)
         .endFill();
 
-    const texture = PIXI.Texture.from(vid);
+      let thisballfootage = bigball;
+      let yMovement = [0, 20, 0, 20, 0]
 
-    const bounds = new PIXI.Rectangle(0, 0, radius * 2, radius  * 2);
-    const newTexture = app.renderer.generateTexture(circle, PIXI.SCALE_MODES.NEAREST, 1, bounds);
-    const focus = new PIXI.Sprite(newTexture);
+      if (balltype === 'bigball') {
+        this.animateText();
+        thisballfootage = bigball
+      } else if (balltype === 'smallball') {
+        thisballfootage = smallball;
+        yMovement = [10, 0, 10, 0, 10]
+      }
 
-    container.addChild(focus);
+      const texture = PIXI.Texture.from(thisballfootage);
 
+      const bounds = new PIXI.Rectangle(0, 0, radius * 2, radius  * 2);
+      const newTexture = app.renderer.generateTexture(circle, PIXI.SCALE_MODES.NEAREST, 1, bounds);
+      const focusmask = new PIXI.Sprite(newTexture);
 
-    // create a new Sprite using the video texture (yes it's that easy)
-    const videoSprite = new PIXI.Sprite(texture);
-    videoSprite.mask = focus;
+      container.addChild(focusmask);
 
-    const videoController = videoSprite.texture.baseTexture.resource.source;
+      const videoSprite = new PIXI.Sprite(texture);
+      const videoController = videoSprite.texture.baseTexture.resource.source;
+      videoSprite.mask = focusmask;
 
-    videoController.loop = true;
+      videoController.loop = true;
+      videoSprite.width = app.screen.width;
+      videoSprite.height = w;
 
-    // Stetch the fullscreen
-    videoSprite.width = app.screen.width;
-    videoSprite.height = 400;
+      anime({
+        targets: container,
+        y: yMovement,
+        duration: 5000,
+        loop: true,
+        easing: 'easeInOutQuad'
+      })
 
+      container.addChild(videoSprite);
+    },
+    animateText() {
+      anime({
+        targets: this.$refs.textball,
+        translateY: [0, 20, 0, 20, 0],
+        duration: 5000,
+        loop: true,
+        easing: 'easeInOutQuad'
+      })
 
-    console.log(videoSprite);
+    },
+    changeText(pos) {
+      console.log(pos);
+      this.activeText.keyword = this.words[pos].keyword;
+      let _this = this;
+      let newPos = pos + 1;
+      if(pos == this.words.length) {
+        console.log('bla')
+        newPos = 0;
+      }
 
-        anime({
-      targets: container,
-      y: [0, 20, -20, 0],
-      duration: 2000,
-      loop: true,
-      easing: 'easeInOutQuad'
-    })
+      anime({
+        targets: this.$refs.textball,
+        color: this.words[pos].color,
+        duration: 1000,
+        easing: 'easeInOutQuad'
+      })
 
-    container.addChild(videoSprite);
-
-    
-
-
-
-
-
-
-
-
-    anime({
-      targets: '#xy .st1',
-      // translateY: [10, 0],
-      opacity: [0, 1],
-      duration: 1000,
-      easing: 'easeInOutQuad',
-      delay: function(el, i) { return i * 100; }
-    })
-
-    anime({
-      targets: '#z .st1',
-      translateY: [10, 0],
-      opacity: [0, 1],
-      duration: 1000,
-      easing: 'easeInOutQuad',
-      // delay: function(el, i) { return i * 100; }
-    })
+      setTimeout(function(){ _this.changeText(newPos) }, 5000);
+    }
   }
 }
 </script>
@@ -174,8 +258,6 @@ app.stage.addChild(container);
 .notification {
   width: 100vw;
   height: 100vh;
-  // background-image: url("../assets/illu.png");
-  // background-size: cover;
 }
 
 .header {
@@ -195,6 +277,7 @@ app.stage.addChild(container);
   fill:none;
   stroke:#676766;
   stroke-width:0.25;
+  opacity: 0;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
@@ -210,19 +293,30 @@ app.stage.addChild(container);
 
 .wrapperball {
   position: absolute;
-  margin-left: 30rem;
-  margin-top: 20rem;
-  width: 250px;
-  height: 250px;
+  margin-left: 52rem;
+  margin-top: 25rem;
+  width: 300px;
+  height: 300px;
+}
+
+.smallwrapperball {
+  position: absolute;
+  margin-left: 38rem;
+  margin-top: 25rem;
+  width: 150px;
+  height: 150px;  
 }
 
 .vidtext {
-  margin-left: 42rem;
-  margin-top: 32rem; 
+  width: 300px;
+  line-height: 300px;
+  text-align: center;
   position: absolute;
   color: white;
   font-family: 'GilReg';
   z-index: 10;
+  top: -30px;
   font-size: 2rem;
+  transform-style: preserve-3d;
 }
 </style>
