@@ -7,6 +7,10 @@
       </div>
     </div>
 
+    <h3 class="leftcaption">Alt-right</h3>
+    <h3 class="rightcaption">Breadtube</h3>
+    
+
     <video class="communityvideo" playsinline autoplay loop muted poster="polina.jpg">
       <source src="../assets/community_morph.mp4" type="video/mp4">
     </video>
@@ -37,7 +41,6 @@ export default {
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
 
-
 .imagebg {
   fill: url(#image)
 }
@@ -47,5 +50,22 @@ export default {
   width: 100vw;
   height: 100vh;
   margin-top: 100px;
+}
+
+h3 {
+  color: white;
+  font-family: 'GilReg';
+  position: absolute;
+  font-size: 1.5rem;
+}
+
+.leftcaption {
+  margin-left: 21%;
+  margin-top: 33%;
+}
+
+.rightcaption {
+  margin-left: 72%;
+  margin-top: 33%;
 }
 </style>

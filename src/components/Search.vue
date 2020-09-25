@@ -61,6 +61,11 @@ import Typed from 'typed.js';
 
 export default {
   name: "Search",
+  data: function() {
+    return {
+      searchActivated: false
+    }
+  },
   mounted: function() {
     const scrollerTwo = scrollama();
 
@@ -72,17 +77,8 @@ export default {
           if(response.index === 6) {
             this.showHeader()
           }
-          // console.log(response.element)
-          
-
-          // { element, index, direction }
         })
-        // .onStepExit(response => {
-        //   // console.log(response)
-        //   // { element, index, direction }
-        // });
 
-      // setup resize event
       window.addEventListener("resize", scrollerTwo.resize);
   },
   methods: {
@@ -99,12 +95,15 @@ export default {
           return i * 500;
         },
         complete: function() {
-          _this.animateSearch();
+          if(_this.searchActivated === false) {
+            _this.animateSearch();
+          }
           _this.$emit('showCTA');           
         }
       });
     },
     animateSearch() {
+      this.searchActivated = true;
       var options = {
         strings: ['elite pedophile ^200 ring'],
         typeSpeed: 60
