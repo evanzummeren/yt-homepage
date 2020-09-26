@@ -19,34 +19,55 @@
           <span class="result__text--innershadow"></span>
           <span class="result__innertext">proven true there actually was an international </span> 
           <span class="highlight"><span class="highlight__innertext">elite pedophile ring</span></span> 
-          <span class="result__innertext"> proven true there actually was an international</span>
+          <span class="result__innertext"> that had its own private island and jeffrey</span>
         </div>
         <span class="result__thumb" style="margin-left: 580px">
-          <span class="result__thumb--innershadow"></span>
+            <span class="result__thumb--innershadow"></span>
+            <v-sprite :id="'sprite'"
+              :spritesheet="require('../assets/spritesheet_knowles.jpg')"
+              :json="require('../assets/spritesheet_thumb.json')"
+              :yoyo="false"
+              :fps="3"
+              ref="firstsprite"
+            ></v-sprite>
         </span>
       </div>
 
       <div class="result result__first" style="margin-left: 3rem">
         <div class="result__text">
           <span class="result__text--innershadow"></span>
-          <span class="result__innertext">proven true there actually a completely secret </span>
+          <span class="result__innertext">by the way. Trudeau's best friend jailed after </span>
           <span class="highlight"><span class="highlight__innertext">elite pedophile ring</span></span>
-          <span class="result__innertext"> proven true there actually was an international</span>
+          <span class="result__innertext"> bust. This guy was Justin Trudeau's college roommate</span>
         </div>
         <span class="result__thumb" style="margin-left: 580px">
-          <span class="result__thumb--innershadow"></span>
+            <span class="result__thumb--innershadow"></span>
+            <v-sprite :id="'sprite'"
+              :spritesheet="require('../assets/spritesheet_faith.jpg')"
+              :json="require('../assets/spritesheet_thumb.json')"
+              :yoyo="false"
+              :fps="3"
+              ref="secondsprite"
+            ></v-sprite>
         </span>
       </div>
 
-            <div class="result result__first" style="margin-left: 8rem">
+      <div class="result result__first" style="margin-left: 8rem">
         <div class="result__text">
           <span class="result__text--innershadow"></span>
-          <span class="result__innertext">proven true there actually a completely secret </span>
+          <span class="result__innertext">in which this has happened. Survivor of alleged </span>
           <span class="highlight"><span class="highlight__innertext">elite pedophile ring</span></span>
-          <span class="result__innertext"> proven true there actually was an international</span>
+          <span class="result__innertext"> including former prime minister speaks out a woman claiming</span>
         </div>
         <span class="result__thumb" style="margin-left: 580px">
-          <span class="result__thumb--innershadow"></span>
+            <span class="result__thumb--innershadow"></span>
+            <v-sprite :id="'sprite'"
+              :spritesheet="require('../assets/spritesheet_akkad.jpg')"
+              :json="require('../assets/spritesheet_thumb.json')"
+              :yoyo="false"
+              :fps="3"
+              ref="thirdsprite"
+            ></v-sprite>
         </span>
       </div>
 
@@ -115,6 +136,13 @@ export default {
       setTimeout(function(){ console.log('bla'); _this.showVideoResults() }, 2000);
     },
     showVideoResults() {
+      var _this = this;
+      setTimeout(function(){ 
+        _this.$refs.firstsprite.stop()
+        _this.$refs.secondsprite.stop()
+        _this.$refs.thirdsprite.stop()
+       }, 3000);
+
 
       var tl = anime.timeline({
         easing: 'easeInOutQuad'
@@ -263,6 +291,7 @@ width: 100vw;
   background: rgb(0,0,0);
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
   display: block;
+  position: absolute;
 }
 
 .result__text--innershadow {

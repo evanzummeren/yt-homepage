@@ -280,4 +280,8 @@ h1 {
   position: absolute;
   margin-left: 20px;
 }
+
+#sprite {
+  width: 100%;
+}
 </style>
