@@ -5,7 +5,7 @@
     
     <h4>Features</h4>
     <h2 class="fulltext">Search through the subtitles of YouTube videos</h2>
-    <p class="description">YouTube being a video platform, makes it difficult for researchers and journalists to figure out what's happening in it's discourse. Where platforms such as Twitter and Facebook have API's that make their content searchable, the YouTube API only scratches the surface. ABC provides an accessible web interface and API.</p>
+    <p class="description">Compare how different channels cover similar topics. Find out how both the tone as well as the intensity of these topics change over time.</p>
 
     <div class="searchbox">
       <span class="string"><span class="innerstring"></span></span>
@@ -240,7 +240,7 @@ width: 100vw;
 }
 
 .result__text .highlight {
-  background: #FFE923;
+  background: #fff59a;
   padding: .25rem;
   color: black;
   border-radius: 5px;

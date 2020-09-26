@@ -10,7 +10,7 @@
       </div>
       <div class="column container__3-12">
         <h3>For developers</h3>
-        <p>If you feel that the current interface doesn't fit your needs, then you can also use our public api. Please fill in <a href="https://erikvanzummeren.typeform.com/to/ER9H43Kl" target="_blank">this form</a> to get in contact.</p>
+        <p>If you feel that the current interface doesn't fit your needs, then you can also use our public api. Please fill in <a href="https://erikvanzummeren.typeform.com/to/ER9H43Kl" class="regularlink" target="_blank">this form</a> to get in contact.</p>
       </div>
     </div>
 
@@ -59,8 +59,7 @@ h4 {
   display: grid;
   margin: 0 4rem;
   padding-top: 4rem;
-  column-gap: 1rem;
-  // grid-auto-columns: 1fr;
+  column-gap: 2rem;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-flow: column;
 }
@@ -86,4 +85,5 @@ p {
   font-family: 'Flaco';
   color: #ababab;
 }
+
 </style>

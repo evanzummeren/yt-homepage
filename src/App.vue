@@ -105,6 +105,16 @@ body {
   overflow-x: hidden;
 }
 
+.regularlink, .regularlink:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.regularlink:hover {
+  color: white;
+  border-bottom: 1px dotted white;
+}
+
 @font-face {
   font-family: "GilReg";
   src: url("./assets/fonts/gil-reg.woff2") format("woff2"),
