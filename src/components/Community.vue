@@ -2,7 +2,7 @@
   <div class="community">
 		<div class="header">
       <div class="container">
-        <h2 class="tempfix">Understand the communities behind these channels</h2>
+        <h2 class="tempfix">Inspect the people and comments behind these channels</h2>
         <p class="description">Often the only way creators can interact with their audience is through the comment section. This tool extracted all these comments so you can find out what they are actually talking about.</p>
       </div>
     </div>
