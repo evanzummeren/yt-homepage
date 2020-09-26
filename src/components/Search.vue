@@ -95,7 +95,7 @@ export default {
           step: ".step"
         })
         .onStepEnter(response => {
-          if(response.index === 6) {
+          if(response.index === 4) {
             this.showHeader()
           }
         })

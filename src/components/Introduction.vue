@@ -18,9 +18,9 @@
     <div class="step step__one"></div>
     <div class="step step__two"></div>
     <div class="step step__three"></div>
-    <div class="step step__four"></div>
-    <div class="step step__five"></div>
-    <div class="step step__six"></div>
+    <!-- <div class="step step__four"></div> -->
+    <!-- <div class="step step__five"></div> -->
+    <!-- <div class="step step__six"></div> -->
 
     <h2>{{text}}</h2>
 
@@ -35,7 +35,7 @@ export default {
   name: "Introduction",
   data: function() {
     return {
-      text: "Every minute more than 500 hours of video is uploaded to YouTube",
+      text: "YouTube's personal recommendation engine makes it difficult to...",
       widthPoints: 10,
     }
   },
@@ -57,18 +57,20 @@ export default {
 
           if (response.index === 1) {
             console.log(response);
-            this.text = "Every minute more than 500 hours of video is uploaded to YouTube"
+            this.text = "YouTube's personal recommendation engine makes it difficult to..."
           } else if (response.index === 2) {
-            this.text = "Some of these videos have a devastating effect on our society"            
+            this.text = "understand what's happening on it's platform"            
           } else if (response.index === 3) {
-            this.text = "They polarize groups to each other"            
-          } else if (response.index === 4) {
-            this.text = "And radicalize individuals"            
-          } else if (response.index === 5) {
-            this.text = "However, due to YouTube's algorithmic nature, it's often difficult to understand what's happening in the dark corners of the platform"            
-          } else if (response.index === 6) {
-            this.text = "This tool aims to..." 
-          }
+            this.text = "This tool indexes the most radical YouTube channels, and makes it searchable for a broad audience."            
+          } 
+          
+          // else if (response.index === 4) {
+          //   this.text = "And radicalize individuals"            
+          // } else if (response.index === 5) {
+          //   this.text = "However, due to YouTube's algorithmic nature, it's often difficult to understand what's happening in the dark corners of the platform"            
+          // } else if (response.index === 6) {
+          //   this.text = "This tool aims to..." 
+          // }
           // { element, index, direction }
         })
         // .onStepExit(response => {
@@ -99,7 +101,7 @@ export default {
 <style scoped>
 .introduction {
   background: black;
-  min-height: 400vh;
+  min-height: 300vh;
   min-width: 100%;
   display: flex;
 }
@@ -125,7 +127,7 @@ p {
 
 svg {
   width: 100%;
-  height: 400vh;
+  height: 300vh;
   background: black;
   position: absolute;
 }
