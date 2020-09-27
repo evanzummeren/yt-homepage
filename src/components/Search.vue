@@ -5,7 +5,7 @@
     
     <h4>Features</h4>
     <h2 class="fulltext">Search through the subtitles of YouTube videos</h2>
-    <p class="description">Compare how different channels cover similar topics. Find out how both the tone as well as the intensity of these topics change over time.</p>
+    <p class="description desc__search">Compare how different channels cover similar topics. Find out how both the tone as well as the intensity of these topics change over time.</p>
 
     <div class="searchbox">
       <span class="string"><span class="innerstring"></span></span>
@@ -71,6 +71,9 @@
         </span>
       </div>
 
+    <div class="step step__leavesearch"></div>
+
+
     </div>
   </div>
 </template>
@@ -90,30 +93,49 @@ export default {
   mounted: function() {
     const scrollerTwo = scrollama();
 
-      scrollerTwo
-        .setup({
-          step: ".step"
-        })
-        .onStepEnter(response => {
-          if(response.index === 4) {
-            this.showHeader()
-          }
-        })
+    scrollerTwo
+      .setup({
+        step: ".step"
+      })
+      .onStepEnter(response => {
+        if(response.index === 4) {
+          this.showElem()
+        }
+
+        if(response.element.className.includes("leavesearch") && response.direction === "up") {
+          // better
+        }
+
+      
+      })
+      .onStepExit(response => {
+        console.log(response)
+        if(response.index === 4) {
+          console.log('-=---=-')
+          console.log(response);
+          console.log('left')
+        }
+
+        if(response.element.className.includes("leavesearch") && response.direction === "down") {
+          this.hideAll();
+          console.log('LEAVING')
+        }
+      });
 
       window.addEventListener("resize", scrollerTwo.resize);
   },
   methods: {
-    showHeader() {
+    showElem() {
       var _this = this;
 
       anime({
-        targets: '.fulltext, .searchbox',
+        targets: '.fulltext, .description, .searchbox',
         translateY: [3, 0],
         opacity: [0, 1],
         duration: 1000,
         easing: 'easeInOutQuad',
         delay: function(el, i) {
-          return i * 500;
+          return i * 300;
         },
         complete: function() {
           if(_this.searchActivated === false) {
@@ -123,11 +145,22 @@ export default {
         }
       });
     },
+    hideAll() {
+      anime({
+        targets: '.fulltext, .desc__search, .searchbox, .result__innertext, .highlight, .result__thumb, .result__thumb--innershadow, .highlight__innertext',
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 50;
+        }
+      });      
+    },
     animateSearch() {
       this.searchActivated = true;
       var options = {
         strings: ['elite pedophile ^200 ring'],
-        typeSpeed: 60
+        typeSpeed: 40
       };
 
       new Typed('.innerstring', options);
@@ -157,6 +190,13 @@ export default {
           return i * 500;
         }
       }).add({
+        targets: '.result__text--innershadow',
+        opacity: [0, 1],
+        duration: 300,
+        delay: function(el, i) {
+          return i * 100;
+        }        
+      }, '-=1500').add({
         targets: '.result__thumb--innershadow',
         opacity: [0, 1],
         duration: 300,
@@ -253,7 +293,7 @@ h4 {
 }
 
 .result {
-width: 100vw;
+  width: 100vw;
   margin-top: 4rem;
   margin-left: -4rem;
   margin-bottom: 4rem; /*DETELETE*/
@@ -265,6 +305,8 @@ width: 100vw;
   font-size: 1rem;
   position: absolute;
   z-index: 10;
+  white-space:nowrap;
+
 }
 
 .result__text .highlight {
@@ -301,14 +343,15 @@ width: 100vw;
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
   display: block;
   position: absolute;
+  z-index: 100;
 }
 
 .step__initiatefulltext {
   margin-top: -20vh;
 }
 
-.step__two {
-  margin-top: 100vh;
+.step__leavesearch {
+  margin-top: 50vh;
 }
 
 .result__innertext, .highlight, .result__thumb, .result__thumb--innershadow, .highlight__innertext {

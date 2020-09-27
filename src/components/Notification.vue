@@ -96,6 +96,7 @@ export default {
         keyword: 'blabla',
         color: 'FFF'
       },
+      ballTriggered: false,
       words: [
         {
           keyword: "bill gates",
@@ -128,6 +129,12 @@ export default {
           step: ".notification"
         })
         .onStepEnter(response => {
+          if (this.ballTriggered === false ) {
+            this.generateBall(300, 500, 'wrapperball', 'bigball');
+            this.generateBall(150, 300, 'smallwrapperball', 'smallball');
+            this.ballTriggered = true;
+          }
+
           console.log(response)
           anime({
             targets: '#xy .st1',
@@ -155,8 +162,7 @@ export default {
       // setup resize event
       window.addEventListener("resize", scroller.resize);
 
-    this.generateBall(300, 500, 'wrapperball', 'bigball');
-    this.generateBall(150, 300, 'smallwrapperball', 'smallball');
+
 
     this.changeText(this.activeText.pos);
 
@@ -206,6 +212,9 @@ export default {
       videoSprite.mask = focusmask;
 
       videoController.loop = true;
+      videoController.muted = true;
+      videoController.playsinline = true;
+      videoController.autoplay = true;
       videoSprite.width = app.screen.width;
       videoSprite.height = w;
 

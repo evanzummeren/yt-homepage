@@ -10,8 +10,10 @@
     </header>
     <div class="hero">
       <h1>Understanding radical<br>YouTube communities</h1>
-      <span class="cta">Scroll down to find out more</span>
-      <div class="line"></div>
+      <div class="cta__container">
+        <span class="cta">Scroll down to find out more</span>
+        <div class="line"></div>
+      </div>
 
       <div class="vidblock video__sq--1" ref="firstblock"></div>
       <div class="vidblock video__sq--2n" ref="secondblock"></div>
@@ -54,7 +56,7 @@ import FooterText from "./components/FooterText.vue";
 import SearchCTA from "./components/SearchCTA.vue";
 
 import contra from "./assets/square_contrapoints.mp4";
-import prager from "./assets/square_prager.mp4";
+import cons from "./assets/square_cons.mp4";
 import akkad from "./assets/square_english.mp4";
 
 import * as PIXI from 'pixi.js';
@@ -73,7 +75,7 @@ export default {
   },
   mounted: function() {
     this.loadVids('firstblock', contra)
-    this.loadVids('secondblock', prager)
+    this.loadVids('secondblock', cons)
     this.loadVids('thirdblock', akkad)
 
     anime({
@@ -114,11 +116,7 @@ export default {
       const container = new PIXI.Container();
       app.stage.addChild(container);
 
-
       const texture = PIXI.Texture.from(vidEl);
-
-
-
       const videoSprite = new PIXI.Sprite(texture);
       const videoController = videoSprite.texture.baseTexture.resource.source;
 
@@ -259,27 +257,38 @@ h1 {
   /* opacity: 0; */
 }
 
-.cta {
-  color: white;
-  position: absolute;
-  z-index: 100;
-  margin-top: 12rem;
-  font-family: "Flaco";
-}
+/* CTA CONTAINER */
 
 @keyframes moveBg {
   from {background-position: 0 0;}
   to {background-position: 0 425px;}
 }
 
-.line {
+.cta__container {
   position: absolute;
-  z-index: 99;
-  margin-top: 42rem;
+  z-index: 100;
+  top: 33rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 475px;
+  width: 300px;
+  /* background: blue; */
+}
+
+.cta {
+  color: white;
+  margin-top: 2rem;
+  font-family: "Flaco";
+}
+
+.line {
   background-image: url("./assets/line.svg");
   background-size: cover;
   width: 11px;
   height: 425px;
+  margin-top: 1rem;
   animation-name: moveBg;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -294,8 +303,8 @@ h1 {
   width: 200px;
   height: 200px;
   position: absolute;
-  margin-top: -12rem;
-  margin-left: -25rem;
+  top: 30%;
+  left: 29%;
 }
 
 .video__sq--2 {
@@ -310,8 +319,8 @@ h1 {
   width: 200px;
   height: 200px;
   position: absolute;
-  margin-top: -20rem;
-  margin-left: 23rem;
+  top: 25%;
+  left: 54%;
 }
 
 .video__sq--3 {
@@ -326,8 +335,8 @@ h1 {
   width: 200px;
   height: 200px;
   position: absolute;
-  margin-top: 20rem;
-  margin-left: 15rem;
+  top: 60%;
+  left: 50%;
 }
 
 .fullvideo {

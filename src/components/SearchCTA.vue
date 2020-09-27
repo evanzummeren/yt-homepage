@@ -6,7 +6,7 @@
     <select v-model="selected">
       <option disabled value="">Select a community</option>
       <option>qanon</option>
-      <option>B</option>
+      <option>altright</option>
       <option>C</option>
     </select>
     <button class="searchbutton">Search</button>
