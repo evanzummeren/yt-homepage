@@ -282,14 +282,14 @@ export default {
   stroke-linejoin:round;
 }
 
-.vidball {
-  width: 250px;
-  height: 250px;
-  position: absolute;
-  border-radius: 200px;
-  margin-left: 40rem;
-  margin-top: 25rem;
-}
+// .vidball {
+//   width: 250px;
+//   height: 250px;
+//   position: absolute;
+//   border-radius: 200px;
+//   margin-left: 40rem;
+//   margin-top: 25rem;
+// }
 
 .wrapperball {
   position: absolute;

@@ -13,17 +13,23 @@
       <span class="cta">Scroll down to find out more</span>
       <div class="line"></div>
 
-      <video class="vidblock video__sq--1" playsinline autoplay muted poster="polina.jpg">
-        <source src="./assets/square_contrapoints.mp4" type="video/mp4">
-      </video>
+      <div class="vidblock video__sq--1" ref="firstblock"></div>
+      <div class="vidblock video__sq--2n" ref="secondblock"></div>
+      <div class="vidblock video__sq--3n" ref="thirdblock"></div>
 
-      <video class="vidblock video__sq--2" playsinline autoplay muted poster="polina.jpg">
+
+
+      <!-- <video class="vidblock video__sq--1" playsinline autoplay muted poster="polina.jpg">
+        <source src="./assets/square_contrapoints.mp4" type="video/mp4">
+      </video> -->
+
+      <!-- <video class="vidblock video__sq--2" playsinline autoplay muted poster="polina.jpg">
         <source src="./assets/square_prager.mp4" type="video/mp4">
       </video>
 
             <video class="vidblock video__sq--3" playsinline autoplay muted poster="polina.jpg">
         <source src="./assets/square_english.mp4" type="video/mp4">
-      </video>
+      </video> -->
 
       <!-- <video class="fullvideo" playsinline autoplay muted poster="polina.jpg">
         <source src="./assets/videobg.mp4" type="video/mp4">
@@ -47,6 +53,11 @@ import FooterText from "./components/FooterText.vue";
 
 import SearchCTA from "./components/SearchCTA.vue";
 
+import contra from "./assets/square_contrapoints.mp4";
+import prager from "./assets/square_prager.mp4";
+import akkad from "./assets/square_english.mp4";
+
+import * as PIXI from 'pixi.js';
 import anime from "animejs";
 
 export default {
@@ -61,6 +72,10 @@ export default {
     Introduction, Search, Community, Notification, FooterText, SearchCTA
   },
   mounted: function() {
+    this.loadVids('firstblock', contra)
+    this.loadVids('secondblock', prager)
+    this.loadVids('thirdblock', akkad)
+
     anime({
       targets: 'h1, .cta, .line',
       translateY: [10, 0],
@@ -86,6 +101,41 @@ export default {
   methods: {
     showFooterCTA() {
       this.searchcta = true;
+    },
+    loadVids(classname, vidEl) {
+      const app = new PIXI.Application({
+        transparent: true,
+        width: 200,
+        height: 200
+      });
+
+      this.$refs[classname].appendChild(app.view);
+
+      const container = new PIXI.Container();
+      app.stage.addChild(container);
+
+
+      const texture = PIXI.Texture.from(vidEl);
+
+
+
+      const videoSprite = new PIXI.Sprite(texture);
+      const videoController = videoSprite.texture.baseTexture.resource.source;
+
+      videoController.muted = true;
+      videoController.autoplay = true;
+      videoSprite.width = app.screen.width;
+      videoSprite.height = 200;
+
+      // anime({
+      //   targets: container,
+      //   y: yMovement,
+      //   duration: 5000,
+      //   loop: true,
+      //   easing: 'easeInOutQuad'
+      // })
+
+      container.addChild(videoSprite);
     }
   }
 };
@@ -244,8 +294,8 @@ h1 {
   width: 200px;
   height: 200px;
   position: absolute;
-  margin-top: -6rem;
-  margin-left: -13rem;
+  margin-top: -12rem;
+  margin-left: -25rem;
 }
 
 .video__sq--2 {
@@ -256,12 +306,28 @@ h1 {
   margin-left: 12rem;
 }
 
+.video__sq--2n {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin-top: -20rem;
+  margin-left: 23rem;
+}
+
 .video__sq--3 {
   width: 200px;
   height: 200px;
   position: absolute;
   margin-top: 9rem;
   margin-left: 7rem;
+}
+
+.video__sq--3n {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin-top: 20rem;
+  margin-left: 15rem;
 }
 
 .fullvideo {
