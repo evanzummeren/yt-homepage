@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="step step__initiatefulltext"></div>
-    <div class="step step__one"></div>
+    <!-- <div class="step step__initiatefulltext"></div> -->
+    <div class="step step__entersearch"></div>
     
     <h4>Features</h4>
     <h2 class="fulltext">Search through the subtitles of YouTube videos</h2>
@@ -98,20 +98,16 @@ export default {
         step: ".step"
       })
       .onStepEnter(response => {
-        if(response.element.className.includes("leavehero") && response.direction === "up") {
-          console.log("ENTER HERO")
-          console.log(response)
+        if (response.element.className.includes("entersearch") && response.direction === "down") {
+          this.showElem();
+        } else if (response.element.className.includes("leavesearch") && response.direction === "up") {
+          this.showElem();
         }
-
-      
       })
       .onStepExit(response => {
-        console.log(response)
-
-
-        if(response.element.className.includes("leavehero") && response.direction === "down") {
-          console.log("LEAVE HERO")
-          console.log('blabla')
+        if(response.element.className.includes("leavesearch") && response.direction === "down") {
+          console.log('hide all')
+          this.hideAll();
         }
       });
 
@@ -129,14 +125,12 @@ export default {
         easing: 'easeInOutQuad',
         delay: function(el, i) {
           return i * 300;
-        },
-        complete: function() {
-          if(_this.searchActivated === false) {
-            _this.animateSearch();
-          }
-          _this.$emit('showCTA');           
         }
       });
+      
+      setTimeout(function(){ 
+          _this.animateSearch();
+      }, 1000);
     },
     hideAll() {
       anime({
@@ -150,16 +144,18 @@ export default {
       });      
     },
     animateSearch() {
-      this.searchActivated = true;
-      var options = {
-        strings: ['elite pedophile ^200 ring'],
-        typeSpeed: 40
-      };
+      if (this.searchActivated === false) {
+        var options = {
+          strings: ['elite pedophile ^200 ring'],
+          typeSpeed: 40
+        };
 
-      new Typed('.innerstring', options);
+        new Typed('.innerstring', options);
+        this.searchActivated = true;
+      }
+
       var _this = this;
-
-      setTimeout(function(){ console.log('bla'); _this.showVideoResults() }, 2000);
+      setTimeout(function(){ _this.showVideoResults() }, 1250);
     },
     showVideoResults() {
       var _this = this;
@@ -209,17 +205,17 @@ export default {
         translateY: [10,0],
         duration: 400,
         delay: function(el, i) {
-          return i * 300;
+          return i * 200;
         }        
-      }, '-=2000').add({
+      }, '-=2500').add({
         targets: '.result__innertext',
         opacity: [0, 1],
         // translateY: [10,0],
         duration: 1000,
         delay: function(el, i) {
-          return i * 300;
+          return i * 200;
         }        
-      }, '-=1000');
+      }, '-=1500');
 
     }
 
@@ -347,7 +343,7 @@ h4 {
   margin-top: 50vh;
 }
 
-.result__innertext, .highlight, .result__thumb, .result__thumb--innershadow, .highlight__innertext {
+.fulltext, .result__innertext, .highlight, .result__thumb, .result__thumb--innershadow, .description, .highlight__innertext {
   opacity: 0;
 }
 </style>

@@ -21,11 +21,7 @@ h2 {
   opacity: 0;
 }
 
-.tempfix {
-  opacity: 1
-}
-
-.description {
+.description, .inspect__description, .notification__description {
   grid-column: col-start / 12;
   font-family: "Flaco";
   color: #ababab;

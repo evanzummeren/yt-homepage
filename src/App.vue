@@ -29,7 +29,7 @@
     <Community />
     <Notification />
     <FooterText />
-    <SearchCTA v-if="searchcta" />
+    <!-- <SearchCTA v-if="searchcta" /> -->
   </div>
 </template>
 
@@ -41,7 +41,7 @@ import Notification from "./components/Notification.vue";
 import FooterText from "./components/FooterText.vue";
 
 import FixedSearch from "./components/FixedSearchCTA.vue";
-import SearchCTA from "./components/SearchCTA.vue";
+// import SearchCTA from "./components/SearchCTA.vue";
 
 import Scrollytelling from "./components/Scrollytelling.js";
 
@@ -63,7 +63,8 @@ export default {
     }
   },
   components: {
-    Introduction, Search, Community, Notification, FooterText, SearchCTA, FixedSearch
+    Introduction, Search, Community, Notification, FooterText, FixedSearch
+    // Introduction, Search, Community, Notification, FooterText, SearchCTA, FixedSearch
   },
   mounted: function() {
     this.initiateScrolls();

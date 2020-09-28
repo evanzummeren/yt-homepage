@@ -1,22 +1,27 @@
 <template>
   <div class="community">
+    <div class="step step__communitystart"></div>
+
 		<div class="header">
       <div class="container">
-        <h2 class="tempfix">Inspect the people and comments behind these channels</h2>
-        <p class="description">Often the only way creators can interact with their audience is through the comment section. This tool extracted all these comments so you can find out what they are actually talking about.</p>
+        <h2 class="inspect__heading">Inspect the people and comments behind these channels</h2>
+        <p class="inspect__description">Often the only way creators can interact with their audience is through the comment section. This tool extracted all these comments so you can find out what they are actually talking about.</p>
       </div>
     </div>
 
 
     <div class="container__video">
-      <div class="midcaption"><span class="innercaption">Find out which users are</span><br/><span class="innercaption">commenting on the same channel</span></div>
+      <div class="midcaption"><span class="innercaption">Figure out which users are</span><br/><span class="innercaption">commenting on the same channel</span></div>
       <h3 class="leftcaption captions">Alt-right</h3>
       <h3 class="rightcaption captions">Breadtube</h3>
+
+      <div class="community__darkfill"></div>
       <video class="communityvideo" playsinline autoplay loop muted poster="../assets/community_placeholder.jpg">
         <source src="../assets/community_morph.mp4" type="video/mp4">
       </video>
     </div>
 
+    <div class="step step__communityend"></div>
   </div>
   
 </template>
@@ -29,6 +34,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/_features.scss";
+
+h2, .inspect__description, .captions, .midcaption {
+  opacity: 0;
+  z-index: 100;
+}
 
 .community {
   width: 100vw;
@@ -44,6 +54,13 @@ export default {
 
 .imagebg {
   fill: url(#image)
+}
+
+.community__darkfill {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  position: absolute;
 }
 
 .communityvideo {
@@ -83,6 +100,7 @@ h3 {
   font-family: 'Flaco';
   color: white;
   font-size: .8rem;
+  z-index: 10;
 }
 
 .innercaption {

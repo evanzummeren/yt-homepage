@@ -47,7 +47,6 @@ export default {
           step: ".step"
         })
         .onStepEnter(response => {
-
           if (response.element.className.includes("firstsen")) {
             this.initAnimation()
             this.fadeInHeading()
@@ -120,7 +119,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .introduction {
   background: black;
@@ -143,6 +141,7 @@ h2 {
   align-self: flex-start;
   top: 50%;
   opacity: 0;
+  font-weight: 100;
 }
 
 p {
@@ -219,22 +218,8 @@ svg {
   margin-top: 30.71rem;
 }
 
-.step__secondsen {
-  margin-top: 100vh;
-}
-
-.step__thirdsen {
-  margin-top: 150vh;
-}
-
-.step__three {
-  margin-top: 200vh;
-}
-
-.step__bottom {
-  margin-top: 230vh;
-}
-
-
-
+.step__secondsen { margin-top: 100vh; }
+.step__thirdsen { margin-top: 150vh; }
+.step__three { margin-top: 200vh; }
+.step__bottom { margin-top: 230vh; }
 </style>

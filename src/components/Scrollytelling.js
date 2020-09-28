@@ -4,7 +4,8 @@ import anime from "animejs";
 export default {
   methods: {
     initiateScrolls() {
-      this.hero()
+      this.hero();
+      this.community();
     },
      hero() {
       const scrollerHero = scrollama();
@@ -49,8 +50,70 @@ export default {
   
         window.addEventListener("resize", scrollerHero.resize);
      },
-     introduction() {
-       
+     community() {
+      const scrollerCommunity = scrollama();
+
+      scrollerCommunity
+        .setup({
+          step: ".step"
+        })
+        .onStepEnter(response => {  
+          if (response.element.className.includes("communitystart") && response.direction === "down") {
+            this.communityEnterAnim()
+          } else if (response.element.className.includes("communityend") && response.direction === "up") {
+            this.communityEnterAnim()
+          }
+        })
+        .onStepExit(response => {
+          if (response.element.className.includes("communityend") && response.direction === "down") {
+            this.communityLeaveAnim();
+          } else if (response.element.className.includes("communitystart") && response.direction === "up") {
+            this.communityLeaveAnim()
+          }
+        });
+  
+        window.addEventListener("resize", scrollerCommunity.resize);
+     },
+     communityEnterAnim() {
+      anime({
+        targets: '.inspect__heading, .inspect__description, .captions, .midcaption',
+        translateY: [3, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500;
+        }
+      });
+
+      anime({
+        targets: '.community__darkfill',
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: 1000
+      });
+     },
+     communityLeaveAnim() {
+      anime({
+        targets: '.inspect__heading, .inspect__description, .captions, .midcaption',
+        translateY: [0, 3],
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500;
+        }
+      });
+
+      anime({
+        targets: '.community__darkfill',
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: 300
+      });
+
      }
   }
 }

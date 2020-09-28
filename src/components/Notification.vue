@@ -3,16 +3,16 @@
       <div class="header">
 
         <div class="container">
-          <h2 class="tempfix">Get notified when a channel mentions a specific topic</h2>
-          <p class="description">[Tool] keeps track of the videos that gets uploaded to YouTube. You can subscribe to specific topics and receive an email if a video mentions a topic that you are interested in.</p>
+          <h2 class="notification__heading">Get notified when a channel mentions a specific topic</h2>
+          <p class="notification__description">[Tool] keeps track of the videos that gets uploaded to YouTube. You can subscribe to specific topics and receive an email if a video mentions a topic that you are interested in.</p>
         </div>
 
       </div>
 
       <div class="wrapperball" ref="wrapperball">
         <h3 class="vidtext" ref="textball">{{activeText.keyword}}</h3>
-
       </div>
+
       <div class="smallwrapperball" ref="smallwrapperball"></div>
 
 
@@ -122,51 +122,37 @@ export default {
     }
   },
   mounted: function() {
-       const scroller = scrollama();
+    const scroller = scrollama();
 
-      scroller
-        .setup({
-          step: ".notification"
-        })
-        .onStepEnter(() => {
-          if (this.ballTriggered === false ) {
-            this.generateBall(300, 500, 'wrapperball', 'bigball');
-            this.generateBall(150, 300, 'smallwrapperball', 'smallball');
-            this.ballTriggered = true;
-          }
+    scroller
+      .setup({
+        step: ".notification"
+      })
+      .onStepEnter(response => {
+        if (response.direction === "down" || response.direction === "up") {
+          this.enterNotification()
+          console.log('going down down down')
+        } 
+        if (this.ballTriggered === false ) {
+          this.generateBall(300, 500, 'wrapperball', 'bigball');
+          this.generateBall(150, 300, 'smallwrapperball', 'smallball');
+          this.ballTriggered = true;
+        }
 
+      })
+      .onStepExit(response => {
+        if (response.direction === "down" || response.direction === "up") {
+          console.log('leave this shit');
+          this.exitNotification();
+        }
+        // console.log(response)
+        // { element, index, direction }
+      });
 
-          anime({
-            targets: '#xy .st1',
-            opacity: [0, 1],
-            duration: 1000,
-            easing: 'easeInOutQuad',
-            delay: function(el, i) { return i * 100; }
-          })
-
-          anime({
-            targets: '#z .st1',
-            translateY: [10, 0],
-            opacity: [0, 1],
-            duration: 1000,
-            easing: 'easeInOutQuad',
-            // delay: function(el, i) { return i * 100; }
-          })
-
-        })
-        // .onStepExit(response => {
-        //   // console.log(response)
-        //   // { element, index, direction }
-        // });
-
-      // setup resize event
-      window.addEventListener("resize", scroller.resize);
-
-
+    // setup resize event
+    window.addEventListener("resize", scroller.resize);
 
     this.changeText(this.activeText.pos);
-
-
   },
   methods: {
     generateBall(w, h, classname, balltype) {
@@ -228,6 +214,82 @@ export default {
 
       container.addChild(videoSprite);
     },
+    enterNotification() {
+      anime({
+        targets: '.notification__heading, .notification__description',
+        translateY: [3, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500;
+        }
+      });
+
+      anime({
+        targets: '.wrapperball, .smallwrapperball',
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500 + 1000;
+        }
+      });
+
+      anime({
+        targets: '#xy .st1',
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) { return i * 100; }
+      })
+
+      anime({
+        targets: '#z .st1',
+        translateY: [10, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+      })
+    },
+    exitNotification() {
+      anime({
+        targets: '.notification__heading, .notification__description',
+        translateY: [0, 3],
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500;
+        }
+      });
+
+      anime({
+        targets: '.wrapperball, .smallwrapperball',
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) {
+          return i * 500 + 1000;
+        }
+      });
+
+      anime({
+        targets: '#xy .st1',
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        delay: function(el, i) { return i * 100; }
+      })
+
+      anime({
+        targets: '#z .st1',
+        translateY: [0, 10],
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeInOutQuad',
+      })
+    },
     animateText() {
       anime({
         targets: this.$refs.textball,
@@ -262,6 +324,10 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/_features.scss";
 
+.notification__heading, .notification__description, .wrapperball, .smallwrapperball {
+ opacity: 0;
+}
+
 .notification {
   width: 100vw;
   height: 100vh;
@@ -287,15 +353,6 @@ export default {
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-
-// .vidball {
-//   width: 250px;
-//   height: 250px;
-//   position: absolute;
-//   border-radius: 200px;
-//   margin-left: 40rem;
-//   margin-top: 25rem;
-// }
 
 .wrapperball {
   position: absolute;
