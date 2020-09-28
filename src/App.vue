@@ -174,8 +174,7 @@ body {
 header {
   position: fixed;
   color: white;
-  margin-left: 4rem;
-  margin-top: 2rem;
+  margin: 2rem 4rem;
   z-index: 20;
   width: calc(100vw - 8rem);
   display: flex;

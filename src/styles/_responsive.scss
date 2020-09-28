@@ -1,6 +1,11 @@
 @media only screen and (max-width: 800px) {
   body {
+    overflow-x: hidden;
+  }
+
+  body {
     font-size: 16px !important;
+    position: relative;
   }
 
   h1 {
@@ -30,4 +35,12 @@
   .bg__elem__four { margin-left: 26.5rem !important }
   .video__sq--1 { left: 1% !important }
   .video__sq--3n { top: 55% !important }
+
+  /* Margin fixes */
+  header { 
+    margin: 2rem !important;
+    width: calc(100vw - 4rem) !important;
+  }
+  .fixedsearchcta { margin: 6rem 2rem 0 2rem !important }
+  .container, .container__footer { margin: 0 2rem 0 2rem !important }
 }
