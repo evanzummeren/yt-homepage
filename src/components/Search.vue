@@ -295,7 +295,7 @@ h4 {
   position: absolute;
   z-index: 10;
   white-space:nowrap;
-
+  font-weight: 100;
 }
 
 .result__text .highlight {
@@ -341,6 +341,11 @@ h4 {
 
 .step__leavesearch {
   margin-top: 50vh;
+}
+
+.result__innertext {
+  display: inline-block;
+  margin: 0 .5rem;
 }
 
 .fulltext, .result__innertext, .highlight, .result__thumb, .result__thumb--innershadow, .description, .highlight__innertext {
