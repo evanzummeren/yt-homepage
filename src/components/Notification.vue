@@ -128,14 +128,14 @@ export default {
         .setup({
           step: ".notification"
         })
-        .onStepEnter(response => {
+        .onStepEnter(() => {
           if (this.ballTriggered === false ) {
             this.generateBall(300, 500, 'wrapperball', 'bigball');
             this.generateBall(150, 300, 'smallwrapperball', 'smallball');
             this.ballTriggered = true;
           }
 
-          console.log(response)
+
           anime({
             targets: '#xy .st1',
             opacity: [0, 1],
@@ -239,12 +239,10 @@ export default {
 
     },
     changeText(pos) {
-      console.log(pos);
       this.activeText.keyword = this.words[pos].keyword;
       let _this = this;
       let newPos = pos + 1;
-      if(pos == this.words.length) {
-        console.log('bla')
+      if(pos == this.words.length - 1) {
         newPos = 0;
       }
 
@@ -272,7 +270,6 @@ export default {
 .header {
   position: absolute;
   width: 100vw;
-  // height: 500px;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }

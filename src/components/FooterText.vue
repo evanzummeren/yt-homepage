@@ -5,7 +5,7 @@
         <h4>Additional data</h4>
       </div>
       <div class="column container__3-12">
-        <h3>Datasets</h3>
+        <h3>For journalists</h3>
         <p>Journalists are one of the core audiences for this tool. For the sake of convenience we have released a couple of public datasets that have been aggregated through this tool.</p>
       </div>
       <div class="column container__3-12">
@@ -23,7 +23,7 @@
         <p>This tool currently tracks 235 different channels. Are you doing research into certain channels that aren't covered by this tool? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. We are also looking for volunteers willing to curate the list of channels that we are currently tracking.</p>
       </div>
       <div class="column container__3-12">
-        <h3>Press</h3>
+        <h3>Press inquiries</h3>
         <p>For press inquiries please contact erikvanzummeren@gmail.com</p>
       </div>
       <div class="column container__3-12">
@@ -46,7 +46,6 @@ export default {
 @import "../styles/_features.scss";
 
 h4 {
-  // grid-column: col-start / 16;
   font-family: "Flaco";
   color: #FFE923;
   text-transform: uppercase;

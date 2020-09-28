@@ -7,13 +7,15 @@
       </div>
     </div>
 
-    <h3 class="leftcaption">Alt-right</h3>
-    <h3 class="rightcaption">Breadtube</h3>
-    
 
-    <video class="communityvideo" playsinline autoplay loop muted poster="polina.jpg">
-      <source src="../assets/community_morph.mp4" type="video/mp4">
-    </video>
+    <div class="container__video">
+      <div class="midcaption"><span class="innercaption">Find out which users are</span><br/><span class="innercaption">commenting on the same channel</span></div>
+      <h3 class="leftcaption captions">Alt-right</h3>
+      <h3 class="rightcaption captions">Breadtube</h3>
+      <video class="communityvideo" playsinline autoplay loop muted poster="../assets/community_placeholder.jpg">
+        <source src="../assets/community_morph.mp4" type="video/mp4">
+      </video>
+    </div>
 
   </div>
   
@@ -36,7 +38,6 @@ export default {
 .header {
   position: absolute;
   width: 100vw;
-  height: 200px;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
@@ -49,7 +50,6 @@ export default {
   object-fit: cover;
   width: 100vw;
   height: 100vh;
-  margin-top: 100px;
 }
 
 h3 {
@@ -59,13 +59,35 @@ h3 {
   font-size: 1.5rem;
 }
 
+.container__video {
+  display: flex;
+  align-items: center;
+}
+
+.captions {
+  margin-top: 3%;
+}
+
 .leftcaption {
   margin-left: 21%;
-  margin-top: 33%;
 }
 
 .rightcaption {
   margin-left: 72%;
-  margin-top: 33%;
+}
+
+.midcaption {
+  position: absolute;
+  margin-left: 50%;
+  margin-top: -10%;
+  font-family: 'Flaco';
+  color: white;
+  font-size: .8rem;
+}
+
+.innercaption {
+  background-color: #1A1A1A;
+  padding: .2rem .5rem; 
+  margin-top: .5rem;
 }
 </style>

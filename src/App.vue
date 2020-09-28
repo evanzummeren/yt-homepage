@@ -10,8 +10,9 @@
     </header>
     <div class="hero">
       <h1>Understanding radical<br>YouTube communities</h1>
+      <h5 class="cta">Scroll down to find out more</h5>
+
       <div class="cta__container">
-        <span class="cta">Scroll down to find out more</span>
         <div class="line"></div>
       </div>
 
@@ -19,25 +20,11 @@
       <div class="vidblock video__sq--2n" ref="secondblock"></div>
       <div class="vidblock video__sq--3n" ref="thirdblock"></div>
 
-
-
-      <!-- <video class="vidblock video__sq--1" playsinline autoplay muted poster="polina.jpg">
-        <source src="./assets/square_contrapoints.mp4" type="video/mp4">
-      </video> -->
-
-      <!-- <video class="vidblock video__sq--2" playsinline autoplay muted poster="polina.jpg">
-        <source src="./assets/square_prager.mp4" type="video/mp4">
-      </video>
-
-            <video class="vidblock video__sq--3" playsinline autoplay muted poster="polina.jpg">
-        <source src="./assets/square_english.mp4" type="video/mp4">
-      </video> -->
-
-      <!-- <video class="fullvideo" playsinline autoplay muted poster="polina.jpg">
-        <source src="./assets/videobg.mp4" type="video/mp4">
-      </video> -->
     </div>
+    <div class="step step__leavehero"></div>
+
     <Introduction />
+    <FixedSearch />
     <Search v-on:showCTA="showFooterCTA" />
     <Community />
     <Notification />
@@ -53,7 +40,10 @@ import Community from "./components/Community.vue";
 import Notification from "./components/Notification.vue";
 import FooterText from "./components/FooterText.vue";
 
+import FixedSearch from "./components/FixedSearchCTA.vue";
 import SearchCTA from "./components/SearchCTA.vue";
+
+import Scrollytelling from "./components/Scrollytelling.js";
 
 import contra from "./assets/square_contrapoints.mp4";
 import cons from "./assets/square_cons.mp4";
@@ -64,16 +54,19 @@ import anime from "animejs";
 
 export default {
   name: "App",
+  mixins: [Scrollytelling],
   data: function() {
     return {
+      vidAnimation: {},
       lang: "en",
       searchcta: false
     }
   },
   components: {
-    Introduction, Search, Community, Notification, FooterText, SearchCTA
+    Introduction, Search, Community, Notification, FooterText, SearchCTA, FixedSearch
   },
   mounted: function() {
+    this.initiateScrolls();
     this.loadVids('firstblock', contra)
     this.loadVids('secondblock', cons)
     this.loadVids('thirdblock', akkad)
@@ -85,11 +78,11 @@ export default {
       scale: [1.1, 1],
       easing: 'easeInOutQuad',
       delay: function(el, i) {
-        return i * 1000;
+        return 500 + (i * 750);
       }
     });
 
-    anime({
+    this.vidAnimation = anime({
       targets: '.vidblock',
       scale: [1.2, .9],
       opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, .8],
@@ -125,14 +118,6 @@ export default {
       videoSprite.width = app.screen.width;
       videoSprite.height = 200;
 
-      // anime({
-      //   targets: container,
-      //   y: yMovement,
-      //   duration: 5000,
-      //   loop: true,
-      //   easing: 'easeInOutQuad'
-      // })
-
       container.addChild(videoSprite);
     }
   }
@@ -140,6 +125,9 @@ export default {
 </script>
 
 <style>
+@import "./styles/_responsive.scss";
+@import "./styles/_scrollytelling.scss";
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -245,15 +233,16 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 h1 {
   color: white;
-  position: absolute;
   font-family: "GilReg";
   z-index: 100;
   font-size: 4rem;
   text-align: center;
+  margin: 2rem 0 0 0;
   /* opacity: 0; */
 }
 
@@ -265,25 +254,23 @@ h1 {
 }
 
 .cta__container {
-  position: absolute;
+  position: relative;
   z-index: 100;
-  top: 33rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 475px;
-  width: 300px;
   /* background: blue; */
 }
 
 .cta {
   color: white;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  font-size: 1rem;
   font-family: "Flaco";
+  font-weight: 100;
+  z-index: 100;
 }
 
 .line {
+  position: absolute;
   background-image: url("./assets/line.svg");
   background-size: cover;
   width: 11px;
@@ -348,15 +335,12 @@ h1 {
   left: 0;
 }
 
-.step {
-  width: 10px;
-  height: 2px;
-  background: white;
-  position: absolute;
-  margin-left: 20px;
-}
-
 #sprite {
   width: 100%;
+}
+
+/* Scrollytelling */
+.step__leavehero {
+  margin-top: -25vh;
 }
 </style>

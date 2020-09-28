@@ -98,27 +98,20 @@ export default {
         step: ".step"
       })
       .onStepEnter(response => {
-        if(response.index === 4) {
-          this.showElem()
-        }
-
-        if(response.element.className.includes("leavesearch") && response.direction === "up") {
-          // better
+        if(response.element.className.includes("leavehero") && response.direction === "up") {
+          console.log("ENTER HERO")
+          console.log(response)
         }
 
       
       })
       .onStepExit(response => {
         console.log(response)
-        if(response.index === 4) {
-          console.log('-=---=-')
-          console.log(response);
-          console.log('left')
-        }
 
-        if(response.element.className.includes("leavesearch") && response.direction === "down") {
-          this.hideAll();
-          console.log('LEAVING')
+
+        if(response.element.className.includes("leavehero") && response.direction === "down") {
+          console.log("LEAVE HERO")
+          console.log('blabla')
         }
       });
 

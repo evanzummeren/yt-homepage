@@ -1,7 +1,7 @@
 <template>
   <div class="introduction">
     <svg>
-      <g v-for="vindex in 90" :key="vindex">
+      <g v-for="vindex in 60" :key="vindex">
       <g v-for="index in widthPoints" :key="index">
         <line class="st0" :x1="64 * index" :y1="vindex * 64 - 64" :x2="64 * index" :y2="vindex * 64 + 6 - 64"/>
         <line class="st0" :x1="64 * index + 3" :y1="vindex * 64 - 64 + 3" :x2="64 * index - 3" :y2="vindex * 64 - 64 + 3"/>
@@ -14,15 +14,12 @@
     <div class="bg__elem__three noiseblocks"></div>
     <div class="bg__elem__four noiseblocks"></div>
 
-    <div class="step step__zero"></div>
-    <div class="step step__one"></div>
-    <div class="step step__two"></div>
-    <div class="step step__three"></div>
-    <!-- <div class="step step__four"></div> -->
-    <!-- <div class="step step__five"></div> -->
-    <!-- <div class="step step__six"></div> -->
+    <div class="step step__firstsen"></div>
+    <div class="step step__secondsen"></div>
+    <div class="step step__thirdsen"></div>
+    <div class="step step__bottom"></div>
 
-    <h2>{{text}}</h2>
+    <h2 class="introline">{{text}}</h2>
 
   </div>
 </template>
@@ -50,28 +47,28 @@ export default {
           step: ".step"
         })
         .onStepEnter(response => {
-          console.log(response)
-          if(response.index === 0) {
-            this.initAnimation()
-          }
 
-          if (response.index === 1) {
-            console.log(response);
-            this.text = "YouTube's personal recommendation engine makes it difficult to..."
-          } else if (response.index === 2) {
+          if (response.element.className.includes("firstsen")) {
+            this.initAnimation()
+            this.fadeInHeading()
+            this.text = "YouTube's personal recommendation engine makes it difficult to...";
+          } else if (response.element.className.includes("secondsen") && response.direction == "up") {
+            this.flickr();
+            this.text = "YouTube's personal recommendation engine makes it difficult to..."            
+          } else if (response.element.className.includes("secondsen") && response.direction == "down") {
+            this.flickr();
             this.text = "understand what's happening on it's platform"            
-          } else if (response.index === 3) {
+          } else if (response.element.className.includes("thirdsen") && response.direction == "up") {
+            this.flickr();
+            this.text = "understand what's happening on it's platform"            
+          } else if (response.element.className.includes("thirdsen") && response.direction == "down") {
+            this.flickr();
             this.text = "This tool indexes the most radical YouTube channels, and makes it searchable for a broad audience."            
-          } 
-          
-          // else if (response.index === 4) {
-          //   this.text = "And radicalize individuals"            
-          // } else if (response.index === 5) {
-          //   this.text = "However, due to YouTube's algorithmic nature, it's often difficult to understand what's happening in the dark corners of the platform"            
-          // } else if (response.index === 6) {
-          //   this.text = "This tool aims to..." 
-          // }
-          // { element, index, direction }
+          } else if (response.element.className.includes("bottom") && response.direction == "down") {
+            this.fadeOutHeading();
+          } else if (response.element.className.includes("bottom") && response.direction == "up") {
+            this.fadeInHeading();
+          }
         })
         // .onStepExit(response => {
         //   // console.log(response)
@@ -92,6 +89,32 @@ export default {
           return i * 100;
         }
       });
+    },
+    fadeInHeading() {
+      anime({
+        targets: '.introline',
+        opacity: [0, 1],
+        translateY: [10, 0],
+        duration: 1500,
+        easing: 'easeInOutQuad'
+      });
+    },
+    fadeOutHeading() {
+      anime({
+        targets: '.introline',
+        opacity: [1, 0],
+        translateY: [0, -10],
+        duration: 1500,
+        easing: 'easeInOutQuad'
+      });
+    },
+    flickr() {
+      anime({
+        targets: '.introline',
+        opacity: [1, 0, 1, 0, 1],
+        duration: 300,
+        easing: 'easeInOutQuad'
+      });      
     }
   }
 };
@@ -101,7 +124,7 @@ export default {
 <style scoped>
 .introduction {
   background: black;
-  min-height: 300vh;
+  min-height: 250vh;
   min-width: 100%;
   display: flex;
 }
@@ -119,6 +142,7 @@ h2 {
   margin-top: 20rem;
   align-self: flex-start;
   top: 50%;
+  opacity: 0;
 }
 
 p {
@@ -127,7 +151,7 @@ p {
 
 svg {
   width: 100%;
-  height: 300vh;
+  height: 250vh;
   background: black;
   position: absolute;
 }
@@ -195,28 +219,22 @@ svg {
   margin-top: 30.71rem;
 }
 
-.step__one {
-  margin-top: 50vh;
-}
-
-.step__two {
+.step__secondsen {
   margin-top: 100vh;
 }
 
-.step__three {
+.step__thirdsen {
   margin-top: 150vh;
 }
 
-.step__four {
+.step__three {
   margin-top: 200vh;
 }
 
-.step__five {
-  margin-top: 250vh;
+.step__bottom {
+  margin-top: 230vh;
 }
 
-.step__six {
-  margin-top: 325vh;
-}
+
 
 </style>

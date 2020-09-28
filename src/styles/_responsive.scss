@@ -1,0 +1,13 @@
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 16px !important;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  .container__footer {
+    grid-template-columns: 12fr !important;
+    grid-auto-flow: row !important;
+  }
+}
