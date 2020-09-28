@@ -3,7 +3,7 @@
     <header>
       <span class="logo">abc</span>
       <span class="right">
-        <span class="right__cta">Try it out</span>
+        <a href="https://www.google.com" target="_blank" class="toollink"><span class="right__cta">Try it out</span></a>
         <a href="https://www.twitter.com" target="_blank"><span class="right__twitter"></span></a>
         <span class="right__lang">EN<span class="off">/NL</span></span>
       </span>
@@ -192,8 +192,13 @@ header {
 }
 
 .right, .right__cta, .right__lang {
+  color: white;
   line-height: 2.3rem;
   font-family: "Flaco";
+}
+
+.toollink:link, .toollink:visited {
+  text-decoration: none;
 }
 
 .right__twitter {
