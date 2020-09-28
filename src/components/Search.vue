@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- <div class="step step__initiatefulltext"></div> -->
     <div class="step step__entersearch"></div>
     
     <h4>Features</h4>
@@ -106,7 +105,6 @@ export default {
       })
       .onStepExit(response => {
         if(response.element.className.includes("leavesearch") && response.direction === "down") {
-          console.log('hide all')
           this.hideAll();
         }
       });
@@ -210,7 +208,6 @@ export default {
       }, '-=2500').add({
         targets: '.result__innertext',
         opacity: [0, 1],
-        // translateY: [10,0],
         duration: 1000,
         delay: function(el, i) {
           return i * 200;

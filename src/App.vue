@@ -29,7 +29,6 @@
     <Community />
     <Notification />
     <FooterText />
-    <!-- <SearchCTA v-if="searchcta" /> -->
   </div>
 </template>
 
@@ -41,7 +40,6 @@ import Notification from "./components/Notification.vue";
 import FooterText from "./components/FooterText.vue";
 
 import FixedSearch from "./components/FixedSearchCTA.vue";
-// import SearchCTA from "./components/SearchCTA.vue";
 
 import Scrollytelling from "./components/Scrollytelling.js";
 
@@ -64,7 +62,6 @@ export default {
   },
   components: {
     Introduction, Search, Community, Notification, FooterText, FixedSearch
-    // Introduction, Search, Community, Notification, FooterText, SearchCTA, FixedSearch
   },
   mounted: function() {
     this.initiateScrolls();
@@ -130,9 +127,9 @@ export default {
 @import "./styles/_scrollytelling.scss";
 
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -248,7 +245,6 @@ h1 {
   font-size: 4rem;
   text-align: center;
   margin: 2rem 0 0 0;
-  /* opacity: 0; */
 }
 
 /* CTA CONTAINER */
@@ -262,7 +258,6 @@ h1 {
   position: relative;
   z-index: 100;
   flex-direction: column;
-  /* background: blue; */
 }
 
 .cta {

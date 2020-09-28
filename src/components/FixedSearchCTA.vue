@@ -24,12 +24,10 @@ export default {
 .fixedsearchcta {
   bottom: 6rem;
   width: calc(100% - 8rem);
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin: 6rem 4rem 0 4rem;
   background: #1b1b1b;
   height: 4rem;
   z-index: 200;
-  margin-top: 6rem;
 }
 
 .searchcta__heading {
