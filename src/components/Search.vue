@@ -104,7 +104,9 @@ export default {
         }
       })
       .onStepExit(response => {
-        if(response.element.className.includes("leavesearch") && response.direction === "down") {
+        if (response.element.className.includes("leavesearch") && response.direction === "down") {
+          this.hideAll();
+        } else if (response.element.className.includes("entersearch") && response.direction === "up") {
           this.hideAll();
         }
       });
@@ -153,7 +155,7 @@ export default {
       }
 
       var _this = this;
-      setTimeout(function(){ _this.showVideoResults() }, 1250);
+      setTimeout(function(){ _this.showVideoResults() }, 1100);
     },
     showVideoResults() {
       var _this = this;
