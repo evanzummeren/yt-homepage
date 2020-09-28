@@ -131,22 +131,17 @@ export default {
       .onStepEnter(response => {
         if (response.direction === "down" || response.direction === "up") {
           this.enterNotification()
-          console.log('going down down down')
         } 
         if (this.ballTriggered === false ) {
           this.generateBall(300, 500, 'wrapperball', 'bigball');
           this.generateBall(150, 300, 'smallwrapperball', 'smallball');
           this.ballTriggered = true;
         }
-
       })
       .onStepExit(response => {
         if (response.direction === "down" || response.direction === "up") {
-          console.log('leave this shit');
           this.exitNotification();
         }
-        // console.log(response)
-        // { element, index, direction }
       });
 
     // setup resize event
