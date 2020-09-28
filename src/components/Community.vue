@@ -9,7 +9,6 @@
       </div>
     </div>
 
-
     <div class="container__video">
       <div class="midcaption"><span class="innercaption">Figure out which users are</span><br/><span class="innercaption">commenting on the same channel</span></div>
       <h3 class="leftcaption captions">Alt-right</h3>

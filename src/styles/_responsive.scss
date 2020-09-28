@@ -10,4 +10,24 @@
     grid-template-columns: 12fr !important;
     grid-auto-flow: row !important;
   }
+
+  .results {
+    margin-left: -300px;
+  }
+
+  .description, .inspect__description, .notification__description {
+    grid-column: col-start/16 !important;
+  }
+
+  .bg {
+    height: 100vh;
+    margin-left: -90%;
+  }
+
+  .wrapperball { margin-left: 20rem !important }
+  .smallwrapperball { margin-left: 7rem !important }
+  .bg__elem__three { margin-left: 38.5rem !important }
+  .bg__elem__four { margin-left: 26.5rem !important }
+  .video__sq--1 { left: 1% !important }
+  .video__sq--3n { top: 55% !important }
 }

@@ -68,7 +68,7 @@ export default {
           if (response.element.className.includes("communityend") && response.direction === "down") {
             this.communityLeaveAnim();
           } else if (response.element.className.includes("communitystart") && response.direction === "up") {
-            this.communityLeaveAnim()
+            this.communityLeaveAnim();
           }
         });
   

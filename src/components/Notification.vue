@@ -15,12 +15,7 @@
 
       <div class="smallwrapperball" ref="smallwrapperball"></div>
 
-
-      <!-- <video class="vidball" playsinline loop autoplay muted poster="polina.jpg"> -->
-        <!-- <source src="../assets/ball.mp4" type="video/mp4"> -->
-      <!-- </video> -->
-
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 936.3 457" style="enable-background:new 0 0 936.3 457;" xml:space="preserve">
+      <svg class="bg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 936.3 457" style="enable-background:new 0 0 936.3 457;" xml:space="preserve">
         <g id="bg">
           <rect class="st0" width="936.3" height="457"/>
         </g>
