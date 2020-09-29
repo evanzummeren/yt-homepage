@@ -4,13 +4,13 @@
 
 		<div class="header">
       <div class="container">
-        <h2 class="inspect__heading">Inspect the people and comments behind these channels</h2>
-        <p class="inspect__description">Often the only way creators can interact with their audience is through the comment section. This tool extracted all these comments so you can find out what they are actually talking about.</p>
+        <h2 class="inspect__heading">Understand people behind these channels by analyzing their comments</h2>
+        <p class="inspect__description">Often times the only way creators can interact with their audience is through the comment section. This tool extracts all these comments so you can find out what they are actually talking about.</p>
       </div>
     </div>
 
     <div class="container__video">
-      <div class="midcaption"><span class="innercaption">Figure out which users are</span><br/><span class="innercaption">commenting on the same channel</span></div>
+      <div class="midcaption"><span class="innercaption">Define users that are</span><br/><span class="innercaption">commenting on the same channels</span></div>
       <h3 class="leftcaption captions">Alt-right</h3>
       <h3 class="rightcaption captions">Breadtube</h3>
 

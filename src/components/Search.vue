@@ -4,7 +4,7 @@
     
     <h4>Features</h4>
     <h2 class="fulltext">Search through the subtitles of YouTube videos</h2>
-    <p class="description desc__search">Compare how different channels cover similar topics. Find out how both the tone as well as the intensity of these topics change over time.</p>
+    <p class="description desc__search">Compare how different channels cover similar topics. Find out how the tone as well as the frequency of these topics change over time.</p>
 
     <div class="searchbox">
       <span class="string"><span class="innerstring"></span></span>

@@ -6,25 +6,25 @@
       </div>
       <div class="column container__3-12">
         <h3>For journalists</h3>
-        <p>Journalists are one of the core audiences for this tool. For the sake of convenience we have released a couple of public datasets that have been aggregated through this tool.</p>
+        <p>For your convenience we have released a couple of public datasets that have been aggregated through this tool. [Rephrase: You can get these sheets and publish them in your articles]</p>
       </div>
       <div class="column container__3-12">
         <h3>For developers</h3>
-        <p>If you feel that the current interface doesn't fit your needs, then you can also use our public api. Please fill in <a href="https://erikvanzummeren.typeform.com/to/ER9H43Kl" class="regularlink" target="_blank">this form</a> to get in contact.</p>
+        <p>If you feel that the current interface doesn't fit your needs, then you can also use our public API. Please fill in <a href="https://erikvanzummeren.typeform.com/to/ER9H43Kl" class="regularlink" target="_blank">this form</a> to get in contact.</p>
       </div>
     </div>
 
     <div class="container__footer container__bottom">
       <div class="column container__2-12">
-        <h4>Get in contact</h4>
+        <h4>Reach out</h4>
       </div>
       <div class="column container__3-12">
         <h3>Collaborate</h3>
-        <p>This tool currently tracks 235 different channels. Are you doing research into certain channels that aren't covered by this tool? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. We are also looking for volunteers willing to curate the list of channels that we are currently tracking.</p>
+        <p>This tool currently tracks 235 different channels. Are you researching certain channels that aren’t covered? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. We are also looking for volunteers willing to curate the list of channels are being tracked.</p>
       </div>
       <div class="column container__3-12">
-        <h3>Press inquiries</h3>
-        <p>For press inquiries please contact erikvanzummeren@gmail.com</p>
+        <h3>Media</h3>
+        <p>For press inquiries please use this form</p>
       </div>
       <div class="column container__3-12">
         <h3>About</h3>

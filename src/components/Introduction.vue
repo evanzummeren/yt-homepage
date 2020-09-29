@@ -56,13 +56,13 @@ export default {
             this.text = "YouTube's personal recommendation engine makes it difficult to..."            
           } else if (response.element.className.includes("secondsen") && response.direction == "down") {
             this.flickr();
-            this.text = "understand what's happening on it's platform"            
+            this.text = "understand what's happening on this platform"            
           } else if (response.element.className.includes("thirdsen") && response.direction == "up") {
             this.flickr();
-            this.text = "understand what's happening on it's platform"            
+            this.text = "understand what's happening on this platform"            
           } else if (response.element.className.includes("thirdsen") && response.direction == "down") {
             this.flickr();
-            this.text = "This tool indexes the most radical YouTube channels, and makes it searchable for a broad audience."            
+            this.text = "This tool tracks the most radical YouTube channels, and makes it searchable for an audience of journalists, researchers and academics."            
           } else if (response.element.className.includes("bottom") && response.direction == "down") {
             this.fadeOutHeading();
           } else if (response.element.className.includes("bottom") && response.direction == "up") {
