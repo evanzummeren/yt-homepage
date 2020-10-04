@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <span class="logo">radicube</span>
+      <span class="logo">raditube</span>
       <span class="right">
         <a href="https://www.google.com" target="_blank" class="toollink"><span class="right__cta">Try it out</span></a>
         <a href="https://www.twitter.com" target="_blank"><span class="right__twitter"></span></a>
