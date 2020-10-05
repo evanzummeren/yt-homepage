@@ -4,7 +4,7 @@
 
         <div class="container">
           <h2 class="notification__heading">Get notified when a specific topic is mentioned</h2>
-          <p class="notification__description">[Tool] keeps track of the videos that gets uploaded to YouTube. You can subscribe to specific topics and receive an email when the topic that you are interested in is mentioned in a video.</p>
+          <p class="notification__description">Raditube keeps track of the videos that gets uploaded to YouTube. You can subscribe to specific topics and receive an email when the topic that you are interested in is mentioned in a video.</p>
         </div>
 
       </div>

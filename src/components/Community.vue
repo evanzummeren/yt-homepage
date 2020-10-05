@@ -5,7 +5,7 @@
 		<div class="header">
       <div class="container">
         <h2 class="inspect__heading">Understand people behind these channels by analyzing their comments</h2>
-        <p class="inspect__description">Often times the only way creators can interact with their audience is through the comment section. This tool extracts all these comments so you can find out what they are actually talking about.</p>
+        <p class="inspect__description">Often times the only way creators can interact with their audience is through the comment section. Raditube extracts all these comments so you can find out what they are actually talking about.</p>
       </div>
     </div>
 

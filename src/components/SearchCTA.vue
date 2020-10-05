@@ -5,9 +5,11 @@
     <span class="searchcta__heading">in</span>
     <select v-model="selected">
       <option disabled value="">Select a community</option>
-      <option>qanon</option>
       <option>altright</option>
-      <option>C</option>
+      <option>alternative health</option>
+      <option>conspiracy</option>
+      <option>qanon</option>
+
     </select>
     <button class="searchbutton">Search</button>
   </div>
