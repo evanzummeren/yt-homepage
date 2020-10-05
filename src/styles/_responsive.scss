@@ -35,8 +35,8 @@
     margin-left: -90%;
   }
 
-  .wrapperball { margin-left: 20rem !important }
-  .smallwrapperball { margin-left: 7rem !important }
+  .wrapperball { margin-left: 15rem !important }
+  .smallwrapperball { margin-left: 3rem !important }
   .bg__elem__three { margin-left: 38.5rem !important }
   .bg__elem__four { margin-left: 26.5rem !important }
   .video__sq--1 { left: 1% !important }
@@ -62,6 +62,18 @@
   .container, .container__footer { margin: 0 2rem 0 2rem !important }
 
   .fixedsearchcta {
+    display: none;
+  }
+
+  .results {
+    overflow-x: hidden;
+  }
+
+  .svg-wrapper {
+    overflow-x: hidden;
+  }
+
+  .right {
     display: none;
   }
 }

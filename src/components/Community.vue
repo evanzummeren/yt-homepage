@@ -10,7 +10,9 @@
     </div>
 
     <div class="container__video">
-      <div class="midcaption"><span class="innercaption">Define users that are</span><br/><span class="innercaption">commenting on the same channels</span></div>
+      <div class="midcaption">
+        <span class="innercaption">Define users that are</span><br/><span class="innercaption">commenting on the same channels</span>
+      </div>
       <h3 class="leftcaption captions">Alt-right</h3>
       <h3 class="rightcaption captions">Breadtube</h3>
 

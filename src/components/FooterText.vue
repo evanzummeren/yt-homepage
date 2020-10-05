@@ -6,7 +6,7 @@
       </div>
       <div class="column container__3-12">
         <h3>For journalists</h3>
-        <p>For your convenience there is a list of public datasets that have been aggregated through this tool. [Rephrase: You can get these sheets and publish them in your articles]</p>
+        <p>For your convenience there is a list of public datasets that have been aggregated through this tool. You are welcome to use either the visualisations or the raw data for your publication.</p>
       </div>
       <div class="column container__3-12">
         <h3>For developers</h3>
@@ -20,7 +20,7 @@
       </div>
       <div class="column container__3-12">
         <h3>Collaborate</h3>
-        <p>Raditube currently tracks 235 different channels. Are you researching certain channels that aren’t covered? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. You can also use this form if you are willing to help curate the list of channels that are currently being tracked.</p>
+        <p>Raditube currently tracks [nnn] different channels. Are you researching certain channels that aren’t covered? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. You can also use this form if you are willing to help curate the list of channels that are currently being tracked.</p>
       </div>
       <div class="column container__3-12">
         <h3>Media</h3>
@@ -28,7 +28,7 @@
       </div>
       <div class="column container__3-12">
         <h3>About</h3>
-        <p>This project was...</p>
+        <!-- <p>This project was...</p> -->
       </div>
     </div>
 

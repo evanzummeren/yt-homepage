@@ -136,7 +136,7 @@ body {
   background: #000;
   margin: 0;
   font-size: 16px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .regularlink, .regularlink:visited {

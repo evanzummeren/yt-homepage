@@ -32,7 +32,7 @@ export default {
   name: "Introduction",
   data: function() {
     return {
-      text: "YouTube's personal recommendation engine makes it difficult to...",
+      text: "YouTube's personal recommendation engine makes it difficult to understand what's happening on this platform",
       widthPoints: 10,
     }
   },
@@ -50,16 +50,16 @@ export default {
           if (response.element.className.includes("firstsen")) {
             this.initAnimation()
             this.fadeInHeading()
-            this.text = "YouTube's personal recommendation engine makes it difficult to...";
+            this.text = "YouTube's personal recommendation engine makes it difficult to understand what's happening on this platform";
           } else if (response.element.className.includes("secondsen") && response.direction == "up") {
             this.flickr();
-            this.text = "YouTube's personal recommendation engine makes it difficult to..."            
-          } else if (response.element.className.includes("secondsen") && response.direction == "down") {
-            this.flickr();
-            this.text = "understand what's happening on this platform"            
-          } else if (response.element.className.includes("thirdsen") && response.direction == "up") {
-            this.flickr();
-            this.text = "understand what's happening on this platform"            
+            this.text = "YouTube's personal recommendation engine makes it difficult to understand what's happening on this platform"            
+          // } else if (response.element.className.includes("secondsen") && response.direction == "down") {
+          //   this.flickr();
+          //   this.text = "understand what's happening on this platform"            
+          // } else if (response.element.className.includes("thirdsen") && response.direction == "up") {
+          //   this.flickr();
+          //   this.text = "understand what's happening on this platform"            
           } else if (response.element.className.includes("thirdsen") && response.direction == "down") {
             this.flickr();
             this.text = "This tool tracks the most radical YouTube channels, and makes it searchable for an audience of journalists, researchers and academics."            
@@ -122,7 +122,7 @@ export default {
 <style scoped>
 .introduction {
   background: black;
-  min-height: 250vh;
+  min-height: 230vh;
   min-width: 100%;
   display: flex;
 }
@@ -219,7 +219,7 @@ svg {
 }
 
 .step__secondsen { margin-top: 100vh; }
-.step__thirdsen { margin-top: 150vh; }
-.step__three { margin-top: 200vh; }
-.step__bottom { margin-top: 230vh; }
+.step__thirdsen { margin-top: 145vh; }
+.step__three { margin-top: 150vh; }
+.step__bottom { margin-top: 220vh; }
 </style>
