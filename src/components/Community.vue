@@ -18,7 +18,7 @@
 
       <div class="community__darkfill"></div>
       <video class="communityvideo" playsinline autoplay loop muted poster="../assets/community_placeholder.jpg">
-        <source src="../assets/community_morph.mp4" type="video/mp4">
+        <source src="https://cdn.zummie.com/assets/community_morph.mp4" type="video/mp4">
       </video>
     </div>
 

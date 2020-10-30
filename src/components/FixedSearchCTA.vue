@@ -2,20 +2,16 @@
   <div class="fixedsearchcta">
     <span class="searchcta__heading">Try it out. Search for </span>
     <input v-model="message" placeholder="type here">
-    <span class="searchcta__heading">in</span>
-    <select v-model="selected">
-      <option disabled value="">Select a community</option>
-      <option>qanon</option>
-      <option>altright</option>
-      <option>C</option>
-    </select>
     <button class="searchbutton">Search</button>
+    <span class="searchcta__heading">sample queries: "joe biden" </span>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "FixedSearchCTA"
+  name: "FixedSearchCTA",
+  message: "joe biden"
 
 }
 </script>
@@ -24,10 +20,12 @@ export default {
 .fixedsearchcta {
   bottom: 6rem;
   width: calc(100% - 8rem);
-  margin: 6rem 4rem 0 4rem;
+  margin: 11rem 4rem 0 4rem;
   background: #1b1b1b;
   height: 4rem;
   z-index: 200;
+  display: block;
+  /* position: absolute; */
 }
 
 .searchcta__heading {
@@ -58,6 +56,7 @@ input {
   font-family: "Flaco";
   font-size: .8rem;
   padding-left: 1.5rem;
+  color: white;
 }
 
 select {
@@ -75,9 +74,14 @@ select {
   margin-left: 1rem;
   margin-top: 1px;
   padding: .3rem .6rem;
-  background-color: #1A1A1A;
-  color: #6A6A6A;
+  background-color: #383838;
+  color: #a9a9a9;
   cursor: pointer;
+}
+
+.searchbutton:hover {
+  background-color: #1A1A1A;
+
 }
 
 </style>

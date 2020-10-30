@@ -170,7 +170,7 @@ svg {
   border-radius: 100%;
   width: 3rem;
   height: 3rem;
-  background-image: url("../assets/crosshair.svg"), url("../assets/noise_gif1.gif");
+  background-image: url("../assets/crosshair.svg"), url("https://cdn.zummie.com/assets/noise_gif1.gif");
   background-position: center center;
   background-size: 6px, cover;
   background-repeat: no-repeat;
@@ -183,7 +183,7 @@ svg {
   border-radius: 100%;
   width: 3rem;
   height: 3rem;
-  background-image: url("../assets/crosshair.svg"), url("../assets/noise_gif2.gif");
+  background-image: url("../assets/crosshair.svg"), url("https://cdn.zummie.com/assets/noise_gif2.gif");
   background-position: center center;
   background-size: 6px, cover;
   background-repeat: no-repeat;
@@ -196,7 +196,7 @@ svg {
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   width: 3rem;
   height: 3rem;
-  background-image: url("../assets/crosshair.svg"), url("../assets/noise_gif3.gif");
+  background-image: url("../assets/crosshair.svg"), url("https://cdn.zummie.com/assets/noise_gif3.gif");
   background-position: center center;
   background-size: 6px, cover;
   background-repeat: no-repeat;
@@ -209,7 +209,7 @@ svg {
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   width: 3rem;
   height: 3rem;
-  background-image: url("../assets/crosshair.svg"), url("../assets/noise_gif4.gif");
+  background-image: url("../assets/crosshair.svg"), url("https://cdn.zummie.com/assets/noise_gif4.gif");
   background-position: center center;
   background-size: 6px, cover;
   background-repeat: no-repeat;

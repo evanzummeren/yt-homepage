@@ -9,7 +9,6 @@
       <option>alternative health</option>
       <option>conspiracy</option>
       <option>qanon</option>
-
     </select>
     <button class="searchbutton">Search</button>
   </div>

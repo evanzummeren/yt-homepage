@@ -24,7 +24,7 @@
       </div>
       <div class="column container__3-12">
         <h3>Methodology</h3>
-        <p>A list of indexed channels can be found through </p>
+        <p>A list of indexed channels can be found on <a href="https://tool.raditube.com/channels/1" class="regularlink" target="_blank">this page</a>. Clicking on the channel will show you the videos that have been indexed. More details can be found in this Medium post.</p>
       </div>
       <div class="column container__3-12">
         <h3>About</h3>
