@@ -1,9 +1,9 @@
 <template>
   <div class="fixedsearchcta">
     <span class="searchcta__heading">Try it out. Search for </span>
-    <input v-model="message" placeholder="type here">
-    <button class="searchbutton">Search</button>
-    <span class="searchcta__heading">sample queries: "joe biden" </span>
+    <input v-model="query" placeholder="type here" v-on:keyup.enter="performSearch">
+    <button class="searchbutton" v-on:click="performSearch">Search</button>
+    <span class="searchcta__heading sec">or try <a :href="url" target="_blank">{{currentKey}}</a></span>
 
   </div>
 </template>
@@ -11,12 +11,54 @@
 <script>
 export default {
   name: "FixedSearchCTA",
-  message: "joe biden"
+  data: function() {
+    return {
+      query: "reptilians",
+      currentKey: '"biden is a"',
+      url: "https://tool.raditube.com/search/q/%22biden%20is%20a%22/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc",
+      sampleQueries: [
+        {
+          key: '"q says"',
+          url: "https://tool.raditube.com/search/q/%22q%20says%22/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc/"
+        },
+        {
+          key: 'vaccines',
+          url: "https://tool.raditube.com/search/q/vaccines/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc/"
+        },
+        {
+          key: '"covid~"',
+          url: "https://tool.raditube.com/search/q/covid~/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc/"
+        }       
+      ]
+    }
+  },
+
+  mounted: function() {
+    let counter = 0;
+    let arrLength = this.sampleQueries.length;
+    
+
+    window.setInterval(() => {
+      this.currentKey = this.sampleQueries[counter].key;
+      this.url = this.sampleQueries[counter].url;
+      counter++;
+
+      if (counter === arrLength) {
+        counter = 0;
+      }
+    }, 5000);
+
+  },
+  methods: {
+    performSearch: function () {
+      window.open(`https://tool.raditube.com/search/q/${this.query}/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc`, '_blank');
+    }
+  }
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .fixedsearchcta {
   bottom: 6rem;
   width: calc(100% - 8rem);
@@ -81,7 +123,14 @@ select {
 
 .searchbutton:hover {
   background-color: #1A1A1A;
+}
 
+.sec {
+  margin-left: 1rem;
+}
+
+a {
+  color: white;
 }
 
 </style>
