@@ -3,8 +3,8 @@
     <header>
       <span class="logo">raditube</span>
       <span class="right">
-        <a href="https://www.google.com" target="_blank" class="toollink"><span class="right__cta">Try it out</span></a>
-        <a href="https://www.twitter.com" target="_blank"><span class="right__twitter"></span></a>
+        <a href="https://tool.raditube.com" target="_blank" class="toollink"><span class="right__cta">Try it out</span></a>
+        <a href="https://www.twitter.com/radi_tube" target="_blank"><span class="right__twitter"></span></a>
         <span class="right__lang">EN<span class="off">/NL</span></span>
       </span>
     </header>
@@ -40,7 +40,6 @@ import Notification from "./components/Notification.vue";
 import FooterText from "./components/FooterText.vue";
 
 import FixedSearch from "./components/FixedSearchCTA.vue";
-
 import Scrollytelling from "./components/Scrollytelling.js";
 
 import contra from "./assets/square_contrapoints.mp4";
