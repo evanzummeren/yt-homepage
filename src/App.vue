@@ -4,7 +4,7 @@
       <span class="logo">raditube</span>
       <span class="right">
         <a href="https://tool.raditube.com" target="_blank" class="toollink"><span class="right__cta">Try it out</span></a>
-        <a href="https://www.twitter.com/radi_tube" target="_blank"><span class="right__twitter"></span></a>
+        <a href="https://twitter.com/raditube_com" target="_blank"><span class="right__twitter"></span></a>
         <span class="right__lang">EN<span class="off">/NL</span></span>
       </span>
     </header>
