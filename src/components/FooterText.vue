@@ -28,9 +28,9 @@
       </div>
       <div class="column container__3-12">
         <h3>About</h3>
-        <p>This project has been created by Erik van Zummeren. Special thanks goes out to Cameron Ballard, Robert-Jan Korteschiel and Tech, Media & Democracy who have played an important role in the creation.</p>
+        <p>This project has been created by <a href="https://www.erikvanzummeren.com" class="regularlink" target="_blank">Erik van Zummeren</a>. Special thanks goes out to <a href="https://www.cameronballard.space" class="regularlink" target="_blank">Cameron Ballard</a>, Robert-Jan Korteschiel and Tech, Media & Democracy who have played an important role in the creation.</p>
         <br/>
-        <p>Important support has been provided by the SIDN Fonds, ScrapingHub and DigitalOcean.</p>
+        <p>Important support has been provided by the <a href="https://www.sidnfonds.nl" class="regularlink" target="_blank">SIDN Fonds</a>, <a href="https://www.scrapinghub.com" class="regularlink" target="_blank">ScrapingHub</a> and <a href="https://www.digitalocean.com" class="regularlink" target="_blank">DigitalOcean</a>.</p>
       </div>
     </div>
 
