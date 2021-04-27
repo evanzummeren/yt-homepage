@@ -3,8 +3,8 @@
     <header>
       <span class="logo">raditube</span>
       <span class="right">
-        <a href="https://tool.raditube.com" target="_blank" class="toollink"><span class="right__cta">Try it out</span></a>
-        <a href="https://twitter.com/raditube_com" target="_blank"><span class="right__twitter"></span></a>
+        <a href="https://tool.raditube.com" target="_blank" class="toollink" v-on:click="trackClick('tool top cta')"><span class="right__cta">Try it out</span></a>
+        <a href="https://twitter.com/raditube_com" target="_blank" v-on:click="trackClick('twitter')"><span class="right__twitter"></span></a>
         <span class="right__lang">EN<span class="off">/NL</span></span>
       </span>
     </header>
@@ -92,6 +92,11 @@ export default {
     });
   },
   methods: {
+    trackClick(elem) {
+      this.$mixpanel.track('clicks', {
+        'destination': elem
+      });
+    },
     showFooterCTA() {
       this.searchcta = true;
     },

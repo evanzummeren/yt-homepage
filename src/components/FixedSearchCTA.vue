@@ -51,6 +51,10 @@ export default {
   },
   methods: {
     performSearch: function () {
+      this.$mixpanel.track('clicks', {
+        'destination': 'fixedsearchcta'
+      });
+    
       window.open(`https://tool.raditube.com/search/q/${this.query}/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc`, '_blank');
     }
   }
