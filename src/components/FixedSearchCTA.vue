@@ -3,8 +3,7 @@
     <span class="searchcta__heading">Try it out. Search for </span>
     <input v-model="query" placeholder="type here" v-on:keyup.enter="performSearch">
     <button class="searchbutton" v-on:click="performSearch">Search</button>
-    <span class="searchcta__heading sec">or try <a :href="url" target="_blank">{{currentKey}}</a></span>
-
+    <span class="searchcta__heading sec">or try <a :href="url" target="_blank" v-on:click="trackClick('Perform Search — Fixed search example')">{{currentKey}}</a></span>
   </div>
 </template>
 
@@ -36,7 +35,8 @@ export default {
   mounted: function() {
     let counter = 0;
     let arrLength = this.sampleQueries.length;
-    
+
+    console.log(this.$parent)
 
     window.setInterval(() => {
       this.currentKey = this.sampleQueries[counter].key;
@@ -51,11 +51,11 @@ export default {
   },
   methods: {
     performSearch: function () {
-      this.$mixpanel.track('clicks', {
-        'destination': 'fixedsearchcta'
-      });
-    
+      this.$parent.amplitudeInstance.logEvent('Perform Search — Fixed search CTA')
       window.open(`https://tool.raditube.com/search/q/${this.query}/cat/qanon,altright,althealth,breadtube,conspiracy,marxism/sort/desc`, '_blank');
+    },
+    trackClick: function (elem) {
+      this.$parent.amplitudeInstance.logEvent(elem);
     }
   }
 

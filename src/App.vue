@@ -1,128 +1,66 @@
 <template>
   <div id="app">
-    <header>
-      <span class="logo">raditube</span>
-      <span class="right">
-        <a href="https://tool.raditube.com" target="_blank" class="toollink" v-on:click="trackClick('tool top cta')"><span class="right__cta">Try it out</span></a>
-        <a href="https://twitter.com/raditube_com" target="_blank" v-on:click="trackClick('twitter')"><span class="right__twitter"></span></a>
-        <span class="right__lang">EN<span class="off">/NL</span></span>
-      </span>
-    </header>
-    <div class="hero">
-      <h1>Understanding radical<br>YouTube communities</h1>
-      <h5 class="cta">Scroll down to find out more</h5>
+    <Menu />
 
-      <div class="cta__container">
-        <div class="line"></div>
-      </div>
+    <LandingPage />
 
-      <div class="vidblock video__sq--1" ref="firstblock"></div>
-      <div class="vidblock video__sq--2n" ref="secondblock"></div>
-      <div class="vidblock video__sq--3n" ref="thirdblock"></div>
-
-    </div>
-    <div class="step step__leavehero"></div>
-
-    <Introduction />
-    <FixedSearch />
-    <Search v-on:showCTA="showFooterCTA" />
-    <Community />
-    <Notification />
-    <FooterText />
     
   </div>
 </template>
 
 <script>
-import Introduction from "./components/Introduction.vue";
-import Search from "./components/Search.vue";
-import Community from "./components/Community.vue";
-import Notification from "./components/Notification.vue";
-import FooterText from "./components/FooterText.vue";
+import Menu from "./components/Menu.vue";
 
-import FixedSearch from "./components/FixedSearchCTA.vue";
-import Scrollytelling from "./components/Scrollytelling.js";
+import LandingPage from "./components/LandingPage.vue"
 
-import contra from "./assets/square_contrapoints.mp4";
-import cons from "./assets/square_cons.mp4";
-import akkad from "./assets/square_english.mp4";
-
-import * as PIXI from 'pixi.js';
-import anime from "animejs";
+import amplitude from "amplitude-js";
 
 export default {
   name: "App",
-  mixins: [Scrollytelling],
   data: function() {
     return {
-      vidAnimation: {},
-      lang: "en",
-      searchcta: true
+      amplitudeInstance: amplitude.getInstance()
     }
   },
   components: {
-    Introduction, Search, Community, Notification, FooterText, FixedSearch
+    Menu, LandingPage
   },
   mounted: function() {
-    this.initiateScrolls();
-    this.loadVids('firstblock', contra)
-    this.loadVids('secondblock', cons)
-    this.loadVids('thirdblock', akkad)
-
-    anime({
-      targets: 'h1, .cta, .line',
-      translateY: [10, 0],
-      duration: 2000,
-      scale: [1.1, 1],
-      easing: 'easeInOutQuad',
-      delay: function(el, i) {
-        return 500 + (i * 750);
-      }
-    });
-
-    this.vidAnimation = anime({
-      targets: '.vidblock',
-      scale: [1.2, .9],
-      opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, .8],
-      duration: 6000,
-      easing: 'easeInOutQuad',
-      delay: function(el, i) {
-        return i * 300;
-      }
-    });
+    this.amplitudeInstance.init("b79dc91978a6ebd27882e8f581c2c36d");
+    this.amplitudeInstance.logEvent("App Open")
   },
   methods: {
     trackClick(elem) {
-      this.$mixpanel.track('clicks', {
-        'destination': elem
-      });
+      console.log(elem)
+
+      this.amplitudeInstance.logEvent(elem);
     },
-    showFooterCTA() {
-      this.searchcta = true;
-    },
-    loadVids(classname, vidEl) {
-      const app = new PIXI.Application({
-        transparent: true,
-        width: 200,
-        height: 200
-      });
+    // showFooterCTA() {
+    //   this.searchcta = true;
+    // },
+    // loadVids(classname, vidEl) {
+    //   const app = new PIXI.Application({
+    //     transparent: true,
+    //     width: 200,
+    //     height: 200
+    //   });
 
-      this.$refs[classname].appendChild(app.view);
+    //   this.$refs[classname].appendChild(app.view);
 
-      const container = new PIXI.Container();
-      app.stage.addChild(container);
+    //   const container = new PIXI.Container();
+    //   app.stage.addChild(container);
 
-      const texture = PIXI.Texture.from(vidEl);
-      const videoSprite = new PIXI.Sprite(texture);
-      const videoController = videoSprite.texture.baseTexture.resource.source;
+    //   const texture = PIXI.Texture.from(vidEl);
+    //   const videoSprite = new PIXI.Sprite(texture);
+    //   const videoController = videoSprite.texture.baseTexture.resource.source;
 
-      videoController.muted = true;
-      videoController.autoplay = true;
-      videoSprite.width = app.screen.width;
-      videoSprite.height = 200;
+    //   videoController.muted = true;
+    //   videoController.autoplay = true;
+    //   videoSprite.width = app.screen.width;
+    //   videoSprite.height = 200;
 
-      container.addChild(videoSprite);
-    }
+    //   container.addChild(videoSprite);
+    // }
   }
 };
 </script>
@@ -176,21 +114,15 @@ body {
 header {
   position: fixed;
   color: white;
-  margin: 2rem 4rem;
+  margin: 2rem 3rem;
   z-index: 20;
-  width: calc(100vw - 8rem);
+  width: calc(100vw - 6rem);
   display: flex;
   justify-content: space-between;
 }
 
 .logo {
-  background-image: url("./assets/logo.svg");
-  line-height: 2.3rem;
-  padding-left: 4rem;
-  background-repeat: no-repeat;
   display: block;
-  font-family: "Flaco";
-  text-transform: uppercase;
 }
 
 .right, .right__cta, .right__lang {
