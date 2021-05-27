@@ -10,6 +10,7 @@
   "dependencies": {
     "amplitude-js": "^8.2.1",
     "animejs": "^3.2.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "intersection-observer": "^0.11.0",
     "pixi.js": "^5.3.3",
