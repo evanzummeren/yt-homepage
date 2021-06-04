@@ -20,7 +20,7 @@
       </div>
       <div class="column container__3-12">
         <h3>Collaborate</h3>
-        <p>Raditube currently tracks around 380 different channels. Are you researching certain channels that aren’t covered? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. You can also use this form if you are willing to help curate the list of channels that are currently being tracked.</p>
+        <p>Raditube currently tracks around 550 different channels. Are you researching certain channels that aren’t covered? Please reach out through <a href="https://erikvanzummeren.typeform.com/to/RVQom7v5" class="regularlink" target="_blank">this form</a>. You can also use this form if you are willing to help curate the list of channels that are currently being tracked.</p>
       </div>
       <div class="column container__3-12">
         <h3>Methodology</h3>
@@ -28,7 +28,7 @@
       </div>
       <div class="column container__3-12">
         <h3>About</h3>
-        <p>This project has been created by <a href="https://www.erikvanzummeren.com" class="regularlink" target="_blank">Erik van Zummeren</a>. Special thanks goes out to <a href="https://www.cameronballard.space" class="regularlink" target="_blank">Cameron Ballard</a>, Robert-Jan Korteschiel and Tech, Media & Democracy who have played an important role in the creation.</p>
+        <p>RadiTube is a search engine which indexes radical and conspiratorial content on YouTube. It was launched in November 2020. The core team currently consists of Erik van Zummeren and Cameron Ballard.</p>
         <br/>
         <p>Important support has been provided by the <a href="https://www.sidnfonds.nl" class="regularlink" target="_blank">SIDN Fonds</a>, <a href="https://www.scrapinghub.com" class="regularlink" target="_blank">ScrapingHub</a> and <a href="https://www.digitalocean.com" class="regularlink" target="_blank">DigitalOcean</a>.</p>
       </div>
