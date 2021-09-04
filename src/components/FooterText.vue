@@ -14,7 +14,7 @@
       </div>
       <div class="column container__3-12">
         <h3>Donate</h3>
-        <p>RadiTube is freely available to use and is supported through grants. If you would like to make a donation through PayPal please click <a href="https://www.paypal.com/donate?hosted_button_id=DB3TDJ7854YQG" target="_blank">here</a>.</p>
+        <p>RadiTube is supported through grants. If you would like to make a donation through PayPal please click <a href="https://www.paypal.com/donate?hosted_button_id=DB3TDJ7854YQG" target="_blank">here</a>.</p>
       </div>
     </div>
 
