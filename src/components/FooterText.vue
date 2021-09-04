@@ -2,7 +2,7 @@
   <div>
     <div class="container__footer">
       <div class="column container__2-12">
-        <h4>Additional data</h4>
+        <!-- <h4>Additional data</h4> -->
       </div>
       <div class="column container__3-12">
         <h3>For journalists</h3>
@@ -11,6 +11,10 @@
       <div class="column container__3-12">
         <h3>For developers</h3>
         <p>If you feel that the current interface doesn't fit your needs, then you can also use our public API. Please fill in <a href="https://erikvanzummeren.typeform.com/to/ER9H43Kl" class="regularlink" target="_blank">this form</a> to get in contact.</p>
+      </div>
+      <div class="column container__3-12">
+        <h3>Donate</h3>
+        <p>RadiTube is freely available to use and is supported through grants. If you would like to make a donation through PayPal please click <a href="https://www.paypal.com/donate?hosted_button_id=DB3TDJ7854YQG" target="_blank">here</a>.</p>
       </div>
     </div>
 
