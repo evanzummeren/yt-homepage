@@ -34,7 +34,7 @@
         <h3>About</h3>
         <p>RadiTube is a search engine which indexes radical and conspiratorial content on YouTube. It was launched in November 2020. The core team currently consists of Erik van Zummeren and Cameron Ballard.</p>
         <br/>
-        <p>Important support has been provided by the <a href="https://www.sidnfonds.nl" class="regularlink" target="_blank">SIDN Fonds</a>, Limelight Foundation, SVDJ, <a href="https://www.scrapinghub.com" class="regularlink" target="_blank">ScrapingHub</a> and <a href="https://www.digitalocean.com" class="regularlink" target="_blank">DigitalOcean</a>.<br/><br/>Incubated at the Human Rights First Innovation Lab</p>
+        <p>Important support has been provided by the <a href="https://www.sidnfonds.nl" class="regularlink" target="_blank">SIDN Fonds</a>, <a href="https://www.limelight.foundation/" target="_blank">Limelight Foundation</a>, SVDJ, <a href="https://www.scrapinghub.com" class="regularlink" target="_blank">ScrapingHub</a> and <a href="https://www.digitalocean.com" class="regularlink" target="_blank">DigitalOcean</a>.<br/><br/>Incubated at the <a href="https://www.humanrightsfirst.org/" target="_blank">Human Rights First</a> Innovation Lab</p>
       </div>
     </div>
 
